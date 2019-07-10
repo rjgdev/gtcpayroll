@@ -1,9 +1,13 @@
+<?php if($this->session->userdata('userdata')==NULL) redirect(base_url()); 
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>BlackCoders | <?=$title; ?></title>
+  <title>Payroll | <?=$title;?></title>
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
@@ -19,8 +23,8 @@
   <div class="container-scroller">
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center">
-        <a class="navbar-brand brand-logo" href="../../index.html"><img src="assets/images/BlackCoders.png" alt="logo" style="width:75%" align="left"/></a>
-        <a class="navbar-brand brand-logo-mini" href="../../index.html"><img src="assets/images/BlackCoders-mini.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo"><img src="<?php echo base_url(); ?>assets/images/BlackCoders.png" alt="logo" style="width:75%" align="left"/></a>
+        <a class="navbar-brand brand-logo-mini"><img src="<?php echo base_url(); ?>assets/images/BlackCoders-mini.png" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -36,7 +40,7 @@
               <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face4.jpg" alt="image" class="profile-pic">
+                    <img src="<?=base_url(); ?>assets/images/faces/face4.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
                   <h6 class="preview-subject ellipsis font-weight-normal">David Grey
@@ -48,7 +52,7 @@
               </a>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face2.jpg" alt="image" class="profile-pic">
+                    <img src="<?=base_url(); ?>assets/images/faces/face2.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
                   <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
@@ -60,7 +64,7 @@
               </a>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
-                    <img src="assets/images/faces/face3.jpg" alt="image" class="profile-pic">
+                    <img src="<?=base_url(); ?>assets/images/faces/face3.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
                   <h6 class="preview-subject ellipsis font-weight-normal"> Johnson
@@ -122,7 +126,7 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="assets/images/faces/face5.jpg" alt="profile"/>
+              <img src="<?=base_url(); ?>assets/images/faces/face5.jpg" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
@@ -130,7 +134,7 @@
                 Settings
               </a>
               <a class="dropdown-item">
-                <i class="mdi mdi-logout"></i>
+                <i class="mdi mdi-logout"></i> 
                 Logout
               </a>
             </div>
@@ -240,7 +244,7 @@
             </div>
             <ul class="chat-list">
               <li class="list active">
-                <div class="profile"><img src="assets/images/faces/face1.jpg" alt="image"><span class="online"></span></div>
+                <div class="profile"><img src="<?=base_url(); ?>assets/images/faces/face1.jpg" alt="image"><span class="online"></span></div>
                 <div class="info">
                   <p>Thomas Douglas</p>
                   <p>Available</p>
@@ -248,7 +252,7 @@
                 <small class="text-muted my-auto">19 min</small>
               </li>
               <li class="list">
-                <div class="profile"><img src="assets/images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
+                <div class="profile"><img src="<?=base_url(); ?>assets/images/faces/face2.jpg" alt="image"><span class="offline"></span></div>
                 <div class="info">
                   <div class="wrapper d-flex">
                     <p>Catherine</p>
@@ -259,7 +263,7 @@
                 <small class="text-muted my-auto">23 min</small>
               </li>
               <li class="list">
-                <div class="profile"><img src="assets/images/faces/face3.jpg" alt="image"><span class="online"></span></div>
+                <div class="profile"><img src="<?=base_url(); ?>assets/images/faces/face3.jpg" alt="image"><span class="online"></span></div>
                 <div class="info">
                   <p>Daniel Russell</p>
                   <p>Available</p>
@@ -267,7 +271,7 @@
                 <small class="text-muted my-auto">14 min</small>
               </li>
               <li class="list">
-                <div class="profile"><img src="assets/images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
+                <div class="profile"><img src="<?=base_url(); ?>assets/images/faces/face4.jpg" alt="image"><span class="offline"></span></div>
                 <div class="info">
                   <p>James Richardson</p>
                   <p>Away</p>
@@ -275,7 +279,7 @@
                 <small class="text-muted my-auto">2 min</small>
               </li>
               <li class="list">
-                <div class="profile"><img src="assets/images/faces/face5.jpg" alt="image"><span class="online"></span></div>
+                <div class="profile"><img src="<?=base_url(); ?>assets/images/faces/face5.jpg" alt="image"><span class="online"></span></div>
                 <div class="info">
                   <p>Madeline Kennedy</p>
                   <p>Available</p>
@@ -283,7 +287,7 @@
                 <small class="text-muted my-auto">5 min</small>
               </li>
               <li class="list">
-                <div class="profile"><img src="assets/images/faces/face6.jpg" alt="image"><span class="online"></span></div>
+                <div class="profile"><img src="<?=base_url(); ?>assets/images/faces/face6.jpg" alt="image"><span class="online"></span></div>
                 <div class="info">
                   <p>Sarah Graves</p>
                   <p>Available</p>
