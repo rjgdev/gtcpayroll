@@ -1,16 +1,15 @@
 <?php 
    class Employee extends CI_Controller {  
-
-	
+     
 		public function index() { 
-		$data = array(
+		  $data = array(
 				'title' => 'Employee Records'
 			);
 			$this->load->view('Template/Header',$data);
-			$this->load->view('Employee/Index');
+			$query = $this->db->get("user");
+			$data ['records'] = $query->result();
+			$this->load->view('Employee/Index', $data);
 			$this->load->view('Template/Footer');
-
-			
 		} 
 
 	public function login()
@@ -49,15 +48,31 @@
 		}
 		else
 		{
-
-		$this->login();
+		  $this->login();
 		}
-
 	}
-	 public function logout()
-		{
-			$this->session->unset_userdata('userdata');
-			redirect(base_url());
-		}
-   } 
+     
+ public function logout()
+ {
+    $this->session->unset_userdata('userdata');
+    redirect(base_url());
+ }
+
+public function newemployee() {
+      $data = array( 
+        'firstname' => $this->input->post('firstname'),
+        'middlename' => $this->input->post('middlename'),
+        'lastname' => $this->input->post('lastname'),
+        'address' => $this->input->post('address'),
+        'birthdate' => $this->input->post('birthdate'),
+        'contactinfo' => $this->input->post('contactinfo'),
+        'gender' => $this->input->post('gender'),
+        'civilstatus' => $this->input->post('civilstatus'),
+        'citizenship' => $this->input->post('citizenship'),
+        'hireddate' => $this->input->post('hireddate')
+    );
+      $this->db->insert('user',$data);
+      redirect("Employee");
+  }
+} 
 ?>

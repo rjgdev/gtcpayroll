@@ -7,5 +7,10 @@
   <script src="<?php echo base_url(); ?>assets/vendors/datatables.net/jquery.dataTables.js"></script>
   <script src="<?php echo base_url(); ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/data-table.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/modal-demo.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendors/jquery-validation/jquery.validate.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/form-validation.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/bt-maxLength.js"></script>
 </body>
 </html>

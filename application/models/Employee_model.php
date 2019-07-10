@@ -3,6 +3,11 @@
 class Employee_model extends CI_Model
 {
 
+  function __construct() 
+  { 
+     parent::__construct(); 
+  }
+  
 	function can_login($username, $password)
 	{
 		$this->db->where('username', $username);
@@ -18,5 +23,11 @@ class Employee_model extends CI_Model
 			return false;
 		}
 	}
-
+  
+  public function add($data)
+  {
+     $this->load->database();      
+  }
 }
+?>
+
