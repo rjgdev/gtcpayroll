@@ -32,16 +32,6 @@ CREATE TABLE `admin` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `admin`
---
-
-LOCK TABLES `admin` WRITE;
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-INSERT INTO `admin` VALUES (1,'wilson','parajas101','2019-07-09 16:00:00.000000');
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `department`
 --
 
@@ -54,15 +44,6 @@ CREATE TABLE `department` (
   PRIMARY KEY (`departmentID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `department`
---
-
-LOCK TABLES `department` WRITE;
-/*!40000 ALTER TABLE `department` DISABLE KEYS */;
-/*!40000 ALTER TABLE `department` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `position`
@@ -78,15 +59,6 @@ CREATE TABLE `position` (
   PRIMARY KEY (`positionID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `position`
---
-
-LOCK TABLES `position` WRITE;
-/*!40000 ALTER TABLE `position` DISABLE KEYS */;
-/*!40000 ALTER TABLE `position` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `user`
@@ -110,20 +82,10 @@ CREATE TABLE `user` (
   `citizenship` varchar(30) NOT NULL,
   `civilstatus` varchar(30) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `datecreated` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+  `datecreateds` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user`
---
-
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Ryan','De Guzman','Radeom','10-08-2000','07-10-2019','Pasig',1,1,'male',90934343,'Filipino','Single','3434334543','0000-00-00 00:00:00.000000'),(2,'Jay','wan','two','10-08-2015','07-10-2019','Pasig',1,1,'male',9999,'Filipino','Single','343434','0000-00-00 00:00:00.000000');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -134,4 +96,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-07-10 18:43:13
+-- Dump completed on 2019-07-10 18:54:36
