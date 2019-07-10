@@ -22,7 +22,7 @@
                 <a class="dropdown-item" href="#">Active</a>
                 <a class="dropdown-item" href="#">Inactive</a>
               </div>
-              <button class="btn btn-primary btn-rounded btn-sm"><i class="mdi mdi-account-plus "></i> New Employee</button>
+              <button class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target="#addModal"><i class="mdi mdi-account-plus "></i> New Employee</button>
             </div>
       </div>
         <div class="row">
@@ -31,33 +31,139 @@
               <table id="order-listing" class="table">
                 <thead>
                   <tr>
-                      <th>Order #</th>
-                      <th>Purchased On</th>
-                      <th>Customer</th>
-                      <th>Ship to</th>
-                      <th>Base Price</th>
-                      <th>Purchased Price</th>
+                      <th>User</th>
+                      <th>Contact No.</th>
+                      <th>Hired Date</th>
                       <th>Status</th>
+                      <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                      <td>1</td>
-                      <td>2012/08/03</td>
-                      <td>Edinburgh</td>
-                      <td>New York</td>
-                      <td>$1500</td>
-                      <td>$3200</td>
-                      <td>
-                        <label class="badge badge-info">On hold</label>
-                      </td>
-                  </tr>
+                  <?php
+                        foreach ($records as $r) {
+                          echo '<tr>';
+                          echo '<td class="py-1 user-circle">
+                            <img src="assets/images/faces/profileimg.png" alt="image"/>'.' '.$r->firstname.' '.$r->lastname.'</td>';
+                          echo '<td>'.$r->contactinfo.'</td>'; 
+                          echo '<td>'.$r->hireddate.'</td>';  
+                          echo '<td>'.$r->status.'</td>'; 
+                          echo '<td><button class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal">View</button></td>' ;
+                        }
+                      ?>
                 </tbody>
               </table>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
+
+          <div class="modal fade" id="addModal" role="dialog" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+            
+              <!-- Modal content-->
+              <form id="commentForm" method="post" action="<?php echo site_url('Employee/newemployee'); ?>">
+              <div class="modal-content">
+                <div class="modal-header" style="background-color: #f6f7fb;">
+                  <h3 class="modal-title" id="ModalLabel">New Employee</h3>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;
+                  </button>
+                </div>
+                <fieldset>
+                <div class="modal-body">
+                  <div class="row grid-margin">
+                  <div class="col-lg-12">
+
+                  <div class="form-group">
+                    <div class="row">
+                    <div class="col">
+                      <div class="form-check form-check-primary">
+                        <label class="form-check-label">
+                          <input type="checkbox" class="form-check-input" id="s2" name="s2[]">
+                          Active
+                        </label>
+                      </div>
+                    </div>                      
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="row">
+                    <div class="col">
+                      <label for="firstname">First Name</label>
+                      <input id="firstname" type="text" name="firstname" class="form-control"  required>
+                    </div>
+                    <div class="col">
+                      <label for="middlename">Middle Name</label>
+                      <input id="middlename" type="text" name="middlename" class="form-control">
+                    </div>
+                    <div class="col">
+                      <label for="lastname">Last Name</label>
+                      <input id="lastname" type="text" name="lastname" class="form-control" required>
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="row">
+                    <div class="col">
+                      <label for="address">Address</label>
+                      <input id="address" type="text" name="address" class="form-control"  required>
+                    </div>
+                    <div class="col">
+                      <label for="birthdate">Birthdate</label>
+                      <input id="birthdate" type="date" name="birthdate" class="form-control" required>
+                    </div>
+                    <div class="col">
+                      <label for="contactinfo">Contact No.</label>
+                      <input id="contactinfo" type="text" name="contactinfo" class="form-control" required>
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="row">
+                    <div class="col">
+                      <label for="gender">Gender</label>
+                      <select class="form-control" name="gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <label for="civilstatus">Civil Status</label>
+                      <select class="form-control" name="civilstatus">
+                        <option>Single</option>
+                        <option>Married</option>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <label for="citizenship">Citizenship</label>
+                      <input id="citizenship" type="text" name="citizenship" class="form-control" required>
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="row">
+                    <div class="col">
+                      <label for="hireddate">Hired Date</label>
+                      <input id="hireddate" type="date" name="hireddate" class="form-control"  required>
+                    </div>
+                   <!--  <div class="col">
+                      <label for="department">Department</label>
+                      <input id="department" type="text" name="department" class="form-control">
+                    </div>
+                    <div class="col">
+                      <label for="position">Position</label>
+                      <input id="position" type="text" name="position" class="form-control">
+                    </div> -->
+                    </div>
+                  </div>
+            
+                    <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" name="submit" value="Save" >Add</button> 
+                  </div>
+                  </fieldset>
+                </div>
+                  </form>
+                </div>
+              </div>
