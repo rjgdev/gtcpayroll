@@ -12,67 +12,105 @@
 			$this->load->view('Template/Footer');
 		} 
 
-	public function login()
-	{
-		if($this->session->userdata('userdata')) redirect(base_url());
-		$data['title'] = 'Login';
-		$this->load->view("login", $data);	
-	}
-	public function login_validation()
-	{
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('username', 'Username', 'required');
-		$this->form_validation->set_rules('password', 'Password', 'required');
-
-		if($this->form_validation->run())
+		public function login()
 		{
-			$username = $this->input->post('username');
-			$password = $this->input->post('password');
-			
-			$this->load->model('employee_model');
-			if($this->employee_model->can_login($username, $password))
+			if($this->session->userdata('userdata')) redirect(base_url());
+			$data['title'] = 'Login';
+			$this->load->view("login", $data);	
+		}
+		public function login_validation()
+		{
+			$this->load->library('form_validation');
+			$this->form_validation->set_rules('username', 'Username', 'required');
+			$this->form_validation->set_rules('password', 'Password', 'required');
+
+			if($this->form_validation->run())
 			{
-				$session_data = array(
-				'username' => $username,
-				'password' => $password
-				);
-				$this->session->set_userdata('userdata',$session_data);
-				redirect(base_url() .'Employee/Index');
+				$username = $this->input->post('username');
+				$password = $this->input->post('password');
+				
+				$this->load->model('employee_model');
+				if($this->employee_model->can_login($username, $password))
+				{
+					$session_data = array(
+					'username' => $username,
+					'password' => $password
+					);
+					$this->session->set_userdata('userdata',$session_data);
+					redirect(base_url() .'Employee/Index');
+				}
+				else
+				{
+
+					$this->session->set_flashdata('error', 'Invalid Username and password');
+					redirect(base_url());
+				}
 			}
 			else
 			{
-
-				$this->session->set_flashdata('error', 'Invalid Username and password');
-				redirect(base_url());
+			  $this->login();
 			}
 		}
-		else
-		{
-		  $this->login();
-		}
-	}
-     
- public function logout()
- {
-    $this->session->unset_userdata('userdata');
-    redirect(base_url());
- }
+	     
+		 public function logout()
+		 {
+		    $this->session->unset_userdata('userdata');
+		    redirect(base_url());
+		 }
 
-public function newemployee() {
-      $data = array( 
-        'firstname' => $this->input->post('firstname'),
-        'middlename' => $this->input->post('middlename'),
-        'lastname' => $this->input->post('lastname'),
-        'address' => $this->input->post('address'),
-        'birthdate' => $this->input->post('birthdate'),
-        'contactinfo' => $this->input->post('contactinfo'),
-        'gender' => $this->input->post('gender'),
-        'civilstatus' => $this->input->post('civilstatus'),
-        'citizenship' => $this->input->post('citizenship'),
-        'hireddate' => $this->input->post('hireddate')
-    );
-      $this->db->insert('user',$data);
-      redirect("Employee");
-  }
-} 
+
+	    public function employee_action(){  
+	           if($_POST["action"] == "Add")  
+	           {  
+	                $data = array(  
+	                    'firstname' => $this->input->post('firstname'),
+				        'middlename' => $this->input->post('middlename'),
+				        'lastname' => $this->input->post('lastname'),
+				        /*'address' => $this->input->post('address'),
+				        'birthdate' => $this->input->post('birthdate'),
+				        'contactinfo' => $this->input->post('contactinfo'),
+				        'gender' => $this->input->post('gender'),
+				        'civilstatus' => $this->input->post('civilstatus'),
+				        'citizenship' => $this->input->post('citizenship'),
+				        'hireddate' => $this->input->post('hireddate')*/
+	                );  
+	                $this->load->model('Employee_model');  
+	                $this->Employee_model->addemployee($data);  
+	                redirect("Employee");
+
+	           }  
+	           if($_POST["action"] == "Edit")  
+	           {   
+	                $updated_data = array(  
+	                    'firstname' => $this->input->post('firstname'),
+				        'middlename' => $this->input->post('middlename'),
+				        'lastname' => $this->input->post('lastname'),
+				        /*'address' => $this->input->post('address'),
+				        'birthdate' => $this->input->post('birthdate'),
+				        'contactinfo' => $this->input->post('contactinfo'),
+				        'gender' => $this->input->post('gender'),
+				        'civilstatus' => $this->input->post('civilstatus'),
+				        'citizenship' => $this->input->post('citizenship'),
+				        'hireddate' => $this->input->post('hireddate')*/ 
+	                );  
+	                $this->load->model('Employee_model');  
+	                $this->Employee_model->update($this->input->post("userID"), $updated_data);  
+	                redirect("Employee"); 
+	           }  
+	      }
+
+	    public function fetch_single_user()  
+	      {  
+	           $output = array();  
+	           $this->load->model("Employee_model");  
+	           $data = $this->Employee_model->fetch_single_user($_POST["userID"]);  
+	           foreach($data as $r)  
+	           {  
+	                $output['firstname'] = $r->firstname;
+	                $output['middlename'] = $r->middlename;  
+	                $output['lastname'] = $r->lastname;  
+	           }  
+	           echo json_encode($output);  
+	      }
+	      }     
 ?>

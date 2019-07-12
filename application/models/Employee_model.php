@@ -24,10 +24,23 @@ class Employee_model extends CI_Model
 		}
 	}
   
-  public function add($data)
-  {
-     $this->load->database();      
-  }
+
+  	public function addemployee($data)  
+	    {  
+	       $this->db->insert('user', $data);  
+	    }
+
+    public function fetch_single_user($userID)  
+        {  
+           $this->db->where("userID", $userID);  
+           $query=$this->db->get('user');  
+           return $query->result();  
+        }  
+    public function update($userID, $data)  
+        {  
+           $this->db->where("userID", $userID);  
+           $this->db->update("user", $data);  
+      	}    
 }
 ?>
 
