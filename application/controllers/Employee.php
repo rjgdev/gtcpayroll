@@ -8,7 +8,7 @@
 			$this->load->view('Template/Header',$data);
 			$query = $this->db->get("user");
 			$data ['records'] = $query->result();
-			$this->load->view('Employee/Index', $data);
+			$this->load->view('Employee', $data);
 			$this->load->view('Template/Footer');
 		} 
 
@@ -37,7 +37,7 @@
 				'password' => $password
 				);
 				$this->session->set_userdata('userdata',$session_data);
-				redirect(base_url() .'Employee/Index');
+				redirect(base_url() .'Employee');
 			}
 			else
 			{

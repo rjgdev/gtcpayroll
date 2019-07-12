@@ -7,11 +7,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Payroll | <?=$title;?></title>
+  <title>Payroll </title>
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="<?=base_url(); ?>assets/css/select2/select2.min.css">
   <link rel="shortcut icon" href="<?=base_url(); ?>assets/images/favicon.png" />
   <style>
       .btn-fixed-size {
