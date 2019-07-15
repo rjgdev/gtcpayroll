@@ -1,5 +1,9 @@
 
-<div class="main-panel">
+ <script>
+  $(function () {
+    $('.select2').select2()
+  })
+</script><div class="main-panel">
   <div class="content-wrapper">
     <nav aria-label="breadcrumb">
                       <ol class="breadcrumb breadcrumb-custom bg-inverse-primary">
@@ -41,7 +45,8 @@
                 </thead>
                 <tbody id="showdata">
                   <?php
-                        foreach ($records as $r) {
+                        foreach ($results['user'] as $r) {
+
                           echo '<tr>';
                           echo '<td class="py-1 user-circle">
                             <img src="assets/images/faces/profileimg.png" alt="image"/>'.' '.$r->firstname.' '.$r->lastname.'</td>';
@@ -149,14 +154,28 @@
                       <label for="hireddate">Hired Date</label>
                       <input id="hireddate" type="date" name="hireddate" class="form-control"  required>
                     </div>
-                   <!--  <div class="col">
-                      <label for="department">Department</label>
-                      <input id="department" type="text" name="department" class="form-control">
+                    <div class="col">
+                      <label for="gender">Department</label>
+                      <select class="form-control" name="departmentID">
+                        <?php
+                        foreach($results['departmentID'] as $department)
+                        {
+                        echo '<option value="'.$department->departmentID.'">'.$department->description.'</option>';
+                        }
+                        ?>  
+                      </select>
                     </div>
                     <div class="col">
-                      <label for="position">Position</label>
-                      <input id="position" type="text" name="position" class="form-control">
-                    </div> -->
+                      <label for="gender">Position</label>
+                      <select class="form-control" name="positionID">
+                        <?php
+                        foreach($results['positionID'] as $position)
+                        {
+                        echo '<option value="'.$position->positionID.'">'.$position->description.'</option>';
+                        }
+                        ?>
+                      </select>
+                    </div>
                     </div>
                   </div>
             
