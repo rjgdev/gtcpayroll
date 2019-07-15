@@ -136,7 +136,7 @@
               </a>
               <a class="dropdown-item">
                 <i class="mdi mdi-logout"></i> 
-                Logout
+                <a href="#"> Logout</a>
               </a>
             </div>
           </li>

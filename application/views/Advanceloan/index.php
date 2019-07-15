@@ -1,4 +1,8 @@
-
+ <script>
+  $(function () {
+    $('.select2').select2()
+  })
+</script>
 <div class="main-panel">        
 <div class="content-wrapper">
 <nav aria-label="breadcrumb">
@@ -16,13 +20,6 @@
           <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i>Add Records</h6>
           </div>
         <div class="mt-3 mt-md-0">
-          <button class="btn btn-sm text-muted border-0 dropdown-toggle px-0" type="button" id="dropdownMenuSizeButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Filter by </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
-          <h6 class="dropdown-header">Filter by</h6>
-          <a class="dropdown-item" href="#">All</a>
-          <a class="dropdown-item" href="#">Active</a>
-          <a class="dropdown-item" href="#">Inactive</a>
-          </div>
             <button class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target="#addModal"><i class="mdi mdi-flash"></i> Add Loan</button>
         </div>
       </div>
@@ -31,24 +28,20 @@
           <div class="table-responsive">
             <table id="order-listing" class="table">
               <thead>
-                  <tr>
-                     <th>Reference</th>
-                      <th>Fullname</th>
-                      <th>Action</th>
-                                                 
+                <tr>
+                     <th width="5%">User ID</th>
+                      <th class="text-center">Fullname</th>                             
                 </tr>
               </thead>
               <tbody>
-                    <?php 
-                    foreach ($results['loan'] as $loan) {
-
-                        echo '<tr>';
-                        echo '<td>'.$loan->loanid.'</td>'; 
-                        echo '<td>'.$loan->fullname.'</td>';  
-                        echo '<td><button class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal">View</button></td>';
-                         echo '</tr>';  
-                    }
-                      ?>                   
+                <?php 
+                foreach ($results['loan'] as $loan) {
+                    echo '<tr>';                  
+                    echo '<td><a href = '.base_url()."AdvanceLoan/?link_id=".$loan->userid.'>'.$loan->userid.'</a></td>';
+                    echo '<td class="text-center">'.$loan->fullname.'</td>';  
+                     echo '</tr>';  
+                }
+                  ?>                   
               </tbody>
             </table>
           </div>
@@ -62,46 +55,38 @@
         <div class="card-body test-card">
         <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
           <div class="d-flex align-items-center">
-          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i> Loan Records</h6>
+          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-card-details"></i> Loan Records</h6>
           </div>
-        <div class="mt-3 mt-md-0">
-          <button class="btn btn-sm text-muted border-0 dropdown-toggle px-0" type="button" id="dropdownMenuSizeButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Filter by </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
-          <h6 class="dropdown-header">Filter by</h6>
-          <a class="dropdown-item" href="#">All</a>
-          <a class="dropdown-item" href="#">Active</a>
-          <a class="dropdown-item" href="#">Inactive</a>
-          </div>
-          
-        </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <div class="table-responsive">
-            <table id="order-listing" class="table">
+         <div class="table-sorter-wrapper col-lg-12 table-responsive">
+            <table id="sortable-table-2" class="table table-striped">
               <thead>
                   <tr>
-                     <th>Reference</th>
-                      <th>Fullname</th>
+                     <th>Reference#</th>
+                     <th>Full Name</th>
                       <th>Loan Type</th>
                       <th>Term of Payment</th>
                       <th>date Granted</th>
                       <th>Amount</th>
+                       <th>Deduction</th>
                       <th>Balance</th>                                  
                 </tr>
               </thead>
               <tbody>
                     <?php 
-                    foreach ($results['loan'] as $loan) {
-
-                        echo '<tr>';
-                        echo '<td>'.$loan->loanid.'</td>'; 
-                        echo '<td>'.$loan->fullname.'</td>';  
-                        echo '<td>'.$loan->loantype.'</td>'; 
-                        echo '<td>'.$loan->termofpaymentID.'</td>';  
-                        echo '<td>'.$loan->dategranted.'</td>'; 
-                        echo '<td>'.$loan->amount.'</td>'; 
-                        echo '<td>'.$loan->balance.'</td>'; 
+                    foreach ($results['userdetail'] as $detail) {
+                        //echo json_encode($detail);  
+                        echo '<tr>';                    
+                        echo '<td>'.$detail->loanid.'</td>';
+                        echo '<td>'.$detail->fullname.'</td>';  
+                        echo '<td>'.$detail->loantype.'</td>'; 
+                        echo '<td>'.$detail->termofpaymentID.'</td>'; 
+                        echo '<td>'.$detail->dategranted.'</td>'; 
+                        echo '<td>'.$detail->amount.'</td>';
+                        echo '<td>'.$detail->deduction.'</td>';
+                        echo '<td>'.$detail->balance.'</td>';
                          echo '</tr>';  
                     }
                       ?>                   
@@ -116,7 +101,6 @@
 </div>
 </div>
 </div>
-
 
     <div class="modal fade" id="addModal" role="dialog" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl" role="document">
@@ -165,6 +149,10 @@
                     <label for="exampleInputPassword1">Loan Amount</label>
                     <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount">
                   </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Deduction Amount</label>
+                    <input type="text" class="form-control" id="deduction" name="deduction" placeholder="Amount">
+                  </div>
                     <div class="form-group">
                       <div class="box box-default">
                         <div class="box-body">
@@ -199,12 +187,7 @@
 
  
  </html>
- <script>
-  $(function () {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-  })
-</script>
+
            
             
 

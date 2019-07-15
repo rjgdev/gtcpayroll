@@ -8,7 +8,7 @@
 			$this->load->view('Template/Header',$data);
 			$query = $this->db->get("user");
 			$data ['records'] = $query->result();
-			$this->load->view('Employee', $data);
+			$this->load->view('Employee/index', $data);
 			$this->load->view('Template/Footer');
 		} 
 
