@@ -14,5 +14,18 @@
 		      </ul>
 		    </div>
 		  </li>
+		   <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="true" aria-controls="ui-basic">
+              <i class="mdi mdi-invert-colors menu-icon"></i>
+              <span class="menu-title">Loans</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse show" id="ui-basic" style="">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><?php echo anchor('Advanceloan', 'Loan', 'class="nav-link"') ?></a></li>
+              </ul>
+            </div>
+          </li>
 	</ul>
 </nav>
+

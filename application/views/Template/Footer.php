@@ -13,8 +13,7 @@
   <script src="<?php echo base_url(); ?>assets/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/form-validation.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/bt-maxLength.js"></script>
-
-
+  <script src="<?php echo base_url(); ?>assets/js/select2/select2.full.min.js"></script>
 </body>
   <script  type="text/javascript">  
                      $(document).ready(function(){  
