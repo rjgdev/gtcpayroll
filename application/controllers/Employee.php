@@ -37,7 +37,7 @@
 					'password' => $password
 					);
 					$this->session->set_userdata('userdata',$session_data);
-					redirect(base_url() .'Employee/Index');
+					redirect(base_url() .'Employee');
 				}
 				else
 				{
@@ -66,13 +66,13 @@
 	                    'firstname' => $this->input->post('firstname'),
 				        'middlename' => $this->input->post('middlename'),
 				        'lastname' => $this->input->post('lastname'),
-				        /*'address' => $this->input->post('address'),
+				        'address' => $this->input->post('address'),
 				        'birthdate' => $this->input->post('birthdate'),
 				        'contactinfo' => $this->input->post('contactinfo'),
 				        'gender' => $this->input->post('gender'),
 				        'civilstatus' => $this->input->post('civilstatus'),
 				        'citizenship' => $this->input->post('citizenship'),
-				        'hireddate' => $this->input->post('hireddate')*/
+				        'hireddate' => $this->input->post('hireddate')
 	                );  
 	                $this->load->model('Employee_model');  
 	                $this->Employee_model->addemployee($data);  
@@ -85,13 +85,13 @@
 	                    'firstname' => $this->input->post('firstname'),
 				        'middlename' => $this->input->post('middlename'),
 				        'lastname' => $this->input->post('lastname'),
-				        /*'address' => $this->input->post('address'),
+				        'address' => $this->input->post('address'),
 				        'birthdate' => $this->input->post('birthdate'),
 				        'contactinfo' => $this->input->post('contactinfo'),
 				        'gender' => $this->input->post('gender'),
 				        'civilstatus' => $this->input->post('civilstatus'),
 				        'citizenship' => $this->input->post('citizenship'),
-				        'hireddate' => $this->input->post('hireddate')*/ 
+				        'hireddate' => $this->input->post('hireddate') 
 	                );  
 	                $this->load->model('Employee_model');  
 	                $this->Employee_model->update($this->input->post("userID"), $updated_data);  
@@ -108,7 +108,14 @@
 	           {  
 	                $output['firstname'] = $r->firstname;
 	                $output['middlename'] = $r->middlename;  
-	                $output['lastname'] = $r->lastname;  
+	                $output['lastname'] = $r->lastname; 
+	                $output['address'] = $r->address;
+	                $output['birthdate'] = $r->birthdate;
+	                $output['contactinfo'] = $r->contactinfo;
+	                $output['gender'] = $r->gender;
+	                $output['civilstatus'] = $r->civilstatus; 
+	                $output['citizenship'] = $r->citizenship;
+	                $output['hireddate'] = $r->hireddate;
 	           }  
 	           echo json_encode($output);  
 	      }

@@ -47,7 +47,7 @@
                             <img src="assets/images/faces/profileimg.png" alt="image"/>'.' '.$r->firstname.' '.$r->lastname.'</td>';
                           echo '<td>'.$r->contactinfo.'</td>'; 
                           echo '<td>'.$r->hireddate.'</td>';  
-                          echo '<td>'.$r->status.'</td>'; 
+                          echo '<td><label class="badge badge-info">Active</label>'.$r->status.'</td>'; 
                           echo '<td><button type="button" name="update" id="'.$r->userID.'" class="btn btn-outline-primary item-edit" data-target="#addModal">View</button></td>' ;
                         }
                       ?>
@@ -103,7 +103,7 @@
                     </div>
                   </div>
 
-                  <!-- <div class="form-group">
+                  <div class="form-group">
                     <div class="row">
                     <div class="col">
                       <label for="address">Address</label>
@@ -148,7 +148,7 @@
                     <div class="col">
                       <label for="hireddate">Hired Date</label>
                       <input id="hireddate" type="date" name="hireddate" class="form-control"  required>
-                    </div> -->
+                    </div>
                    <!--  <div class="col">
                       <label for="department">Department</label>
                       <input id="department" type="text" name="department" class="form-control">

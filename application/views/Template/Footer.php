@@ -1,3 +1,4 @@
+  <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>  
   <script src="<?php echo base_url(); ?>assets/vendors/js/vendor.bundle.base.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/off-canvas.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/hoverable-collapse.js"></script>
@@ -12,14 +13,11 @@
   <script src="<?php echo base_url(); ?>assets/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/form-validation.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/bt-maxLength.js"></script>
+
+
 </body>
-<script  type="text/javascript">  
+  <script  type="text/javascript">  
                      $(document).ready(function(){  
-                      /*$('#add_button').click(function(){  
-                             $('#commentForm')[0].reset();  
-                             $('.modal-title').text("Add User");  
-                             $('#action').val("Add");   
-                        });*/
 
                       $('.modal').on("hidden.bs.modal", function() {
                         $(this).find('form').trigger('reset');
@@ -41,12 +39,21 @@
                                    $('#addModal').modal('show');  
                                    $('#firstname').val(data.firstname);
                                    $('#middlename').val(data.middlename); 
-                                   $('#lastname').val(data.lastname);  
+                                   $('#lastname').val(data.lastname);
+                                   $('#address').val(data.address);  
+                                   $('#birthdate').val(data.birthdate);  
+                                   $('#contactinfo').val(data.contactinfo);  
+                                   $('#gender').val(data.gender);  
+                                   $('#civilstatus').val(data.civilstatus);
+                                   $('#citizenship').val(data.citizenship);
+                                   $('#hireddate').val(data.hireddate);    
                                    $('.modal-title').text("Edit User");  
                                    $('#userID').val(userID);  
                                    $('#action').val("Edit");  
                               }  
                          })  
                     });
-                    </script>
+
+                    });  
+               </script> 
 </html>
