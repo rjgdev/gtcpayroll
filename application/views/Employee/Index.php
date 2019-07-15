@@ -1,3 +1,4 @@
+
 <div class="main-panel">
   <div class="content-wrapper">
     <nav aria-label="breadcrumb">
@@ -22,9 +23,9 @@
                 <a class="dropdown-item" href="#">Active</a>
                 <a class="dropdown-item" href="#">Inactive</a>
               </div>
-              <button class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target="#addModal"><i class="mdi mdi-account-plus "></i> New Employee</button>
+              <button class="btn btn-primary btn-rounded btn-sm" id="add_button" data-toggle="modal" data-target="#addModal"><i class="mdi mdi-account-plus "></i> New Employee</button>
             </div>
-      </div>
+        </div>
         <div class="row">
           <div class="col-12">
             <div class="table-responsive">
@@ -38,7 +39,7 @@
                       <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="showdata">
                   <?php
                         foreach ($records as $r) {
                           echo '<tr>';
@@ -46,8 +47,8 @@
                             <img src="assets/images/faces/profileimg.png" alt="image"/>'.' '.$r->firstname.' '.$r->lastname.'</td>';
                           echo '<td>'.$r->contactinfo.'</td>'; 
                           echo '<td>'.$r->hireddate.'</td>';  
-                          echo '<td>'.$r->status.'</td>'; 
-                          echo '<td><button class="btn btn-outline-primary" data-toggle="modal" data-target="#addModal">View</button></td>' ;
+                          echo '<td><label class="badge badge-info">Active</label>'.$r->status.'</td>'; 
+                          echo '<td><button type="button" name="update" id="'.$r->userID.'" class="btn btn-outline-primary item-edit" data-target="#addModal">View</button></td>' ;
                         }
                       ?>
                 </tbody>
@@ -60,7 +61,7 @@
             <div class="modal-dialog modal-xl" role="document">
             
               <!-- Modal content-->
-              <form id="commentForm" method="post" action="<?php echo site_url('Employee/newemployee'); ?>">
+              <form id="commentForm" method="post" action="<?php echo site_url('Employee/employee_action'); ?>">
               <div class="modal-content">
                 <div class="modal-header" style="background-color: #f6f7fb;">
                   <h3 class="modal-title" id="ModalLabel">New Employee</h3>
@@ -160,10 +161,12 @@
                   </div>
             
                     <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary" name="submit" value="Save" >Add</button> 
+                      <input type="hidden" name="userID" id="userID" />  
+                      <input type="submit" name="action" id="action" class="btn btn-primary" value="Add" />   
                   </div>
                   </fieldset>
                 </div>
                   </form>
                 </div>
               </div>
+              
