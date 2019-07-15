@@ -8,7 +8,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb breadcrumb-custom bg-inverse-primary">
         <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-view-dashboard"></i> Dashboard</a></li>
-         <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i> Employee Loan</span></li>
+         <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i> Manage Charges</span></li>
     </ol>
 </nav>
   <div class="row">
@@ -17,20 +17,16 @@
         <div class="card-body test-card">
         <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
           <div class="d-flex align-items-center">
-          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i>Add Records</h6></br>
-         
+          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i>Add Records</h6>
           </div>
         <div class="mt-3 mt-md-0">
-
-            <button class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target="#addModal"><i class="mdi mdi-flash"></i> Add Loan</button>
-           
+            <button class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target="#addModal"><i class="mdi mdi-flash"></i> Add Charges</button>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <div class="table-responsive">
             <table id="order-listing" class="table">
-               <span><?php echo $this->session->flashdata('item'); ?></span>
               <thead>
                 <tr>
                      <th width="5%">User ID</th>
@@ -38,14 +34,7 @@
                 </tr>
               </thead>
               <tbody>
-                <?php 
-                foreach ($results['loan'] as $loan) {
-                    echo '<tr>';                  
-                    echo '<td><a href = '.base_url()."AdvanceLoan/?link_id=".$loan->userid.'>'.$loan->userid.'</a></td>';
-                    echo '<td class="text-center">'.$loan->fullname.'</td>';  
-                     echo '</tr>';  
-                }
-                  ?>                   
+                           
               </tbody>
             </table>
           </div>
@@ -59,7 +48,7 @@
         <div class="card-body test-card">
         <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
           <div class="d-flex align-items-center">
-          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-card-details"></i> Loan Records</h6>
+          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-card-details"></i>Charges Records</h6>
           </div>
       </div>
       <div class="row">
@@ -79,21 +68,7 @@
                 </tr>
               </thead>
               <tbody>
-                    <?php 
-                    foreach ($results['userdetail'] as $detail) {
-                        //echo json_encode($detail);  
-                        echo '<tr>';                    
-                        echo '<td>'.$detail->loanid.'</td>';
-                        echo '<td>'.$detail->fullname.'</td>';  
-                        echo '<td>'.$detail->loantype.'</td>'; 
-                        echo '<td>'.$detail->termofpaymentID.'</td>'; 
-                        echo '<td>'.$detail->dategranted.'</td>'; 
-                        echo '<td>'.$detail->amount.'</td>';
-                        echo '<td>'.$detail->deduction.'</td>';
-                        echo '<td>'.$detail->balance.'</td>';
-                         echo '</tr>';  
-                    }
-                      ?>                   
+                          
               </tbody>
             </table>
           </div>
@@ -121,14 +96,7 @@
                   <div class="col-lg-12">
                   <div class="form-group">
                     <label>Fullname</label>
-                    <select class="form-control select2" name="userID" style="width: 100%;">
-                    <?php
-                    foreach($results['user'] as $group)
-                    {
-                    echo '<option value="'.$group->userid.'">'.$group->firstname. ' '.$group->middlename.' '.$group->lastname.'</option>';
-                    }
-                    ?>
-                    </select>
+                   
                   </div> 
                   <div class="form-group">
                       <div class="box box-default">
@@ -151,11 +119,11 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Loan Amount</label>
-                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount" required>
+                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">Deduction Amount</label>
-                    <input type="text" class="form-control" id="deduction" name="deduction" placeholder="Amount" required>
+                    <input type="text" class="form-control" id="deduction" name="deduction" placeholder="Amount">
                   </div>
                     <div class="form-group">
                       <div class="box box-default">
@@ -178,8 +146,8 @@
                   </div>
                 </div>            
             <div class="modal-footer">
-              <!--<button type="submit" class="btn btn-primary" name="submit" value="Save" >Add</button> -->
-           <button type="submit" class="alert alert-fill-primary" name="submit" id="submit" value="Save" onclick="showSuccessToast()">Add</button>
+              <!--<button type="button" class="btn btn-success btn-fw" name="submit" value="Save" onclick="showSuccessToast()">Success</button>-->
+             <button type="submit" class="btn btn-primary" name="submit" value="Save" >Add</button> 
             </div>
             </div>
           </div>
@@ -189,13 +157,9 @@
 </form>
 </div>
 </div>
- </html>
- <script>
- $( "#submit" ).click(function() {
 
-  
-});
-</script>
+ 
+ </html>
 
            
             

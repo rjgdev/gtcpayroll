@@ -31,9 +31,17 @@
 			'amount' => $this->input->post('amount')
 		);	
 		 	 $this->db->insert('userloan',$data);
-		 	 echo 'order has successfully been created';
+		 	 $this->session->set_flashdata('item', 'add Loan has successfully been created');
+		 	// echo 'add Loan has successfully been created';
      		 redirect("AdvanceLoan");
 	    }
+	public function charges()
+	{
+			$this->load->view('Template/Header');
+			$this->load->view('Template/Footer');
+			$this->load->view('Advanceloan/charges');
+	}
+
 	}
 
       		

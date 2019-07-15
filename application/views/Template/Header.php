@@ -1,6 +1,4 @@
 <?php if($this->session->userdata('userdata')==NULL) redirect(base_url()); 
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +11,11 @@
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/css/vertical-layout-light/style.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/css/select2/select2.min.css">
+  <link rel="stylesheet" href="<?=base_url(); ?>assets/css/jquery-toast-plugin/jquery.toast.min.css">
   <link rel="shortcut icon" href="<?=base_url(); ?>assets/images/favicon.png" />
+
+
+
   <style>
       .btn-fixed-size {
           width: 100px !important;
@@ -136,7 +138,7 @@
               </a>
               <a class="dropdown-item">
                 <i class="mdi mdi-logout"></i> 
-                <a href="#"> Logout</a>
+                Logout
               </a>
             </div>
           </li>
