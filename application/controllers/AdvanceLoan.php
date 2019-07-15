@@ -32,12 +32,8 @@
 		);	
 		 	 $this->db->insert('userloan',$data);
 		 	 echo 'order has successfully been created';
-     		 redirect("AdvanceLoans");
-
+     		 redirect("AdvanceLoan");
 	    }
-
-	   
-
 	}
 
       		
