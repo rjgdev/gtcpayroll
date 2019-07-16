@@ -45,7 +45,9 @@
                                    $('#gender').val(data.gender);  
                                    $('#civilstatus').val(data.civilstatus);
                                    $('#citizenship').val(data.citizenship);
-                                   $('#hireddate').val(data.hireddate);    
+                                   $('#hireddate').val(data.hireddate);
+                                   $('#departmentID').val(data.departmentID);
+                                   $('#positionID').val(data.positionID);    
                                    $('.modal-title').text("Edit User");  
                                    $('#userID').val(userID);  
                                    $('#action').val("Edit");  
