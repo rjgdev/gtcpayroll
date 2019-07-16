@@ -1,5 +1,9 @@
+  
+
   <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>  
   <script src="<?php echo base_url(); ?>assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery-toast-plugin/jquery.toast.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/jquery-toast-plugin/toastDemo.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/off-canvas.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/hoverable-collapse.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/template.js"></script>
@@ -14,6 +18,9 @@
   <script src="<?php echo base_url(); ?>assets/js/form-validation.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/bt-maxLength.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/select2/select2.full.min.js"></script>
+
+    
+
 </body>
   <script  type="text/javascript">  
                      $(document).ready(function(){  
