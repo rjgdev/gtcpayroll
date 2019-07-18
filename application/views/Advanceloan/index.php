@@ -27,6 +27,10 @@
         <div class="col-12">
           <div class="table-responsive">
             <table id="order-listing" class="table">
+<<<<<<< HEAD
+=======
+               <span><?php echo $this->session->flashdata('item'); ?></span>
+>>>>>>> parent of fc89db8... Manage Leave
               <thead>
                 <tr>
                      <th width="5%">User ID</th>
@@ -174,7 +178,12 @@
                   </div>
                 </div>            
             <div class="modal-footer">
+<<<<<<< HEAD
             <button type="submit" class="btn btn-primary" name="submit" value="Save" >Add</button> 
+=======
+              <!--<button type="submit" class="btn btn-primary" name="submit" value="Save" >Add</button> -->
+           <button type="submit" class="alert alert-fill-primary" name="submit" id="submit" value="Save" onclick="showSuccessToast()">Add</button>
+>>>>>>> parent of fc89db8... Manage Leave
             </div>
             </div>
           </div>
@@ -187,6 +196,12 @@
 
  
  </html>
+ <script>
+ $( "#submit" ).click(function() {
+
+  
+});
+</script>
 
            
             

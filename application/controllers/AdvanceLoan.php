@@ -31,10 +31,24 @@
 			'amount' => $this->input->post('amount')
 		);	
 		 	 $this->db->insert('userloan',$data);
+<<<<<<< HEAD
 		 	 echo 'order has successfully been created';
+=======
+		 	 $this->session->set_flashdata('item', 'add Loan has successfully been created');
+		 	// echo 'add Loan has successfully been created';
+>>>>>>> parent of fc89db8... Manage Leave
      		 redirect("AdvanceLoan");
 
 	    }
+<<<<<<< HEAD
+=======
+	public function charges()
+	{
+			$this->load->view('Template/Header');
+			$this->load->view('Template/Footer');
+			$this->load->view('Advanceloan/charges');
+	}
+>>>>>>> parent of fc89db8... Manage Leave
 
 	}
 

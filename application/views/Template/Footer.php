@@ -1,5 +1,12 @@
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> parent of fc89db8... Manage Leave
   <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>  
   <script src="<?php echo base_url(); ?>assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jquery-toast-plugin/jquery.toast.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/jquery-toast-plugin/toastDemo.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/off-canvas.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/hoverable-collapse.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/template.js"></script>
@@ -17,6 +24,7 @@
 </body>
   <script  type="text/javascript">  
                      $(document).ready(function(){  
+<<<<<<< HEAD
 
                       $('.modal').on("hidden.bs.modal", function() {
                         $(this).find('form').trigger('reset');
@@ -55,6 +63,46 @@
                          })  
                     });
 
+=======
+
+                      $('.modal').on("hidden.bs.modal", function() {
+                        $(this).find('form').trigger('reset');
+                        $('.modal-title').text("New Employee");  
+                         $('#userID').val("");  
+                         $('#action').val("Save");  
+                      });
+
+                      $('.item-edit').unbind('click').bind('click', function(){  
+                                  
+                           var userID = $(this).attr("id");  
+                         $.ajax({  
+                              url:"<?php echo base_url(); ?>Employee/fetch_single_user",  
+                              method:"POST",  
+                              data:{userID:userID},  
+                              dataType:"json",  
+                              success:function(data)  
+                              {  
+                                   $('#addModal').modal('show');  
+                                   $('#firstname').val(data.firstname);
+                                   $('#middlename').val(data.middlename); 
+                                   $('#lastname').val(data.lastname);
+                                   $('#address').val(data.address);  
+                                   $('#birthdate').val(data.birthdate);  
+                                   $('#contactinfo').val(data.contactinfo);  
+                                   $('#gender').val(data.gender);  
+                                   $('#civilstatus').val(data.civilstatus);
+                                   $('#citizenship').val(data.citizenship);
+                                   $('#hireddate').val(data.hireddate);
+                                   $('#departmentID').val(data.departmentID);
+                                   $('#positionID').val(data.positionID);    
+                                   $('.modal-title').text("Edit User");  
+                                   $('#userID').val(userID);  
+                                   $('#action').val("Edit");  
+                              }  
+                         })  
+                    });
+
+>>>>>>> parent of fc89db8... Manage Leave
                     });  
                </script> 
 </html>

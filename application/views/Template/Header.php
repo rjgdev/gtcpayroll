@@ -14,6 +14,12 @@
   <link rel="stylesheet" href="<?=base_url(); ?>assets/css/vertical-layout-light/style.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/css/select2/select2.min.css">
   <link rel="shortcut icon" href="<?=base_url(); ?>assets/images/favicon.png" />
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> parent of fc89db8... Manage Leave
   <style>
       .btn-fixed-size {
           width: 100px !important;
