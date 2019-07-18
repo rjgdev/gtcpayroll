@@ -8,6 +8,7 @@
       showHideTransition: 'slide',
       icon: 'success',
       loaderBg: '#FFFFFF',
+	  delay
       position: 'top-right'
 	  
     })

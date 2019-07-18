@@ -1,9 +1,37 @@
- <script>
-  $(function () {
-    $('.select2').select2()
-  })
+<script>
+  $(document).ready(function() {
+    $("table#detailed_loan").DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": true,
+      //"lengthMenu": [[-1, 300, 600, 900], ["All", 300, 600, 900]],
+      //"pagingType": "full",
+      //"lengthMenu": [[-1, 300, 600, 900], ["All", 300, 600, 900]],
+      //"pagingType": "full",
+      //"dom": '<"pull-left"f><"pull-right"l>tip',
+      dom: 'Bfrtip',
+      buttons: [
+        'csvHtml5'
+      ]
+    });
+  
+<?php 
+foreach ($results['userdetail'] as $fullname) 
+{
+$fullname = $fullname->fullname;
+
+}
+
+?>  
+    $("#export_excel").click(function() {
+      window.open('data:application/vnd.ms-excel,' + encodeURIComponent($('#tabledata').html()));
+    });
+  });
 </script>
-<div class="main-panel">        
+<div class="main-panel">   
 <div class="content-wrapper">
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb breadcrumb-custom bg-inverse-primary">
@@ -12,37 +40,34 @@
     </ol>
 </nav>
   <div class="row">
-    <div class="col-md-3 grid-margin stretch-card">
+    <div class="col-md-4 grid-margin stretch-card">
            <div class="card">
         <div class="card-body test-card">
         <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
           <div class="d-flex align-items-center">
           <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i>Add Records</h6></br>
-         
           </div>
         <div class="mt-3 mt-md-0">
-
-            <button class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target="#addModal"><i class="mdi mdi-flash"></i> Add Loan</button>
-           
+            <button type="button" class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-flash"></i>Add Loan</button>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <div class="table-responsive">
             <table id="order-listing" class="table">
-               <span><?php echo $this->session->flashdata('item'); ?></span>
+               <span class="text-success"><?php echo $this->session->flashdata('item'); ?></span>
               <thead>
                 <tr>
-                     <th width="5%">User ID</th>
-                      <th class="text-center">Fullname</th>                             
+                     <th style="width: 40px ! important;">User ID</th>
+                      <th>Fullname</th>                             
                 </tr>
               </thead>
               <tbody>
                 <?php 
                 foreach ($results['loan'] as $loan) {
                     echo '<tr>';                  
-                    echo '<td><a href = '.base_url()."AdvanceLoan/?link_id=".$loan->userid.'>'.$loan->userid.'</a></td>';
-                    echo '<td class="text-center">'.$loan->fullname.'</td>';  
+                    echo '<td style="width: 40px ! important;"><a href = '.base_url()."AdvanceLoan/?link_id=".$loan->userid.'>'.$loan->userid.'</a></td>';
+                    echo '<td>'.$loan->fullname.'</td>';  
                      echo '</tr>';  
                 }
                   ?>                   
@@ -59,20 +84,21 @@
         <div class="card-body test-card">
         <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
           <div class="d-flex align-items-center">
-          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-card-details"></i> Loan Records</h6>
+          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-card-details"></i> Loan Records  || <?php echo $fullname; ?></h6>
+           
           </div>
       </div>
       <div class="row">
         <div class="col-12">
          <div class="table-sorter-wrapper col-lg-12 table-responsive">
-            <table id="sortable-table-2" class="table table-striped">
+            <table id="detailed_loan" class="table table-bordered table-striped align">
               <thead>
                   <tr>
                      <th>Reference#</th>
-                     <th>Full Name</th>
+                     <!--<th>Full Name</th>  -->
                       <th>Loan Type</th>
                       <th>Term of Payment</th>
-                      <th>date Granted</th>
+                      <th>Date Granted</th>
                       <th>Amount</th>
                        <th>Deduction</th>
                       <th>Balance</th>                                  
@@ -81,20 +107,34 @@
               <tbody>
                     <?php 
                     foreach ($results['userdetail'] as $detail) {
-                        //echo json_encode($detail);  
+                      $totalamount[] = $detail->amount;
+                      $totaldeduction[] = $detail->deduction;
+                      $totalbalance[] = $detail->balance;
+                      
                         echo '<tr>';                    
-                        echo '<td>'.$detail->loanid.'</td>';
-                        echo '<td>'.$detail->fullname.'</td>';  
-                        echo '<td>'.$detail->loantype.'</td>'; 
-                        echo '<td>'.$detail->termofpaymentID.'</td>'; 
-                        echo '<td>'.$detail->dategranted.'</td>'; 
-                        echo '<td>'.$detail->amount.'</td>';
-                        echo '<td>'.$detail->deduction.'</td>';
-                        echo '<td>'.$detail->balance.'</td>';
+                        echo '<td  align="left">'.$detail->loanid.'</td>';
+                       /* echo '<td align="left">'.$detail->fullname.'</td>';   */
+                        echo '<td align="left">'.$detail->loantype.'</td>'; 
+                        echo '<td align="left">'.$detail->termofpaymentID.'</td>'; 
+                        echo '<td align="left">'.$detail->dategranted.'</td>'; 
+                        echo '<td align="right">'.number_format($detail->amount, 2, '.', ',').'</td>';
+                        echo '<td align="right">'.number_format($detail->deduction, 2, '.', ',').'</td>';
+                        echo '<td align="right">'.number_format($detail->balance, 2, '.', ',').'</td>';
                          echo '</tr>';  
                     }
                       ?>                   
               </tbody>
+              <tfoot>
+                <tr>
+                    <th>Total</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td align="right"><?php echo number_format(array_sum($totalamount), 2, '.', ','); ?></td>
+                    <td align="right"><?php echo number_format(array_sum($totaldeduction), 2, '.', ','); ?></td>
+                   <td align="right"><?php echo number_format(array_sum($totalbalance), 2, '.', ','); ?></td>
+                </tr>
+              </tfoot> 
             </table>
           </div>
         </div>
@@ -102,100 +142,71 @@
   </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-
-    <div class="modal fade" id="addModal" role="dialog" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-xl" role="document">
-        <form id="commentForm" method="post" action="<?php echo site_url('AdvanceLoan/newloan'); ?>">
-          <div class="modal-content">
-            <div class="modal-header" style="background-color: #f6f7fb;">
-            <h4 class="modal-title" id="ModalLabel">Loan add</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <form id="commentForm" method="post" action="<?php echo site_url('AdvanceLoan/newloan'); ?>">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Loan</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
             </button>
-            </div>
-          <fieldset>  
-            <div class="modal-body">
-                <div class="row grid-margin">
-                  <div class="col-lg-12">
-                  <div class="form-group">
-                    <label>Fullname</label>
-                    <select class="form-control select2" name="userID" style="width: 100%;">
-                    <?php
-                    foreach($results['user'] as $group)
-                    {
-                    echo '<option value="'.$group->userid.'">'.$group->firstname. ' '.$group->middlename.' '.$group->lastname.'</option>';
-                    }
-                    ?>
-                    </select>
-                  </div> 
-                  <div class="form-group">
-                      <div class="box box-default">
-                          <div class="box-body">
-                            <div class="form-group">
-                              <label for="exampleInputPassword1">Loan Type</label>
-                              <select class="form-control select2" name="loantypeID" style="width: 100%;">
-                              <option value="1">Social Security System(SSS)</option>
-                              <option value="2">Pag-IBIG</option>
-                              <option value="3">Salary</option>
-                              <option value="4">Emergency</option>
-                              </select>
-                            </div>     
-                          </div>               
-                      </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="birthdate">Date Granted</label>
-                    <input id="dategranted" type="date" name="dategranted" class="form-control" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Loan Amount</label>
-                    <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount" required>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Deduction Amount</label>
-                    <input type="text" class="form-control" id="deduction" name="deduction" placeholder="Amount" required>
-                  </div>
-                    <div class="form-group">
-                      <div class="box box-default">
-                        <div class="box-body">
-                          <div class="form-group">
-                            <label for="exampleInputPassword1">Term of Payments</label>
-                            <select class="form-control select2" name="termofpaymentID" id="termofpaymentID" style="width: 100%;">
-                            <option value="1">Monthly</option>
-                            <option value="2">Payday</option>
-                            <option value="3">Yearly</option>
-                            </select>
-                          </div>     
-                        </div>               
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-w85p-container"><span class="select2-selection__rendered" id="select2-w85p-container" title="California"></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span>
-                  </div>
-
-                  </div>
-                </div>            
-            <div class="modal-footer">
-              <!--<button type="submit" class="btn btn-primary" name="submit" value="Save" >Add</button> -->
-           <button type="submit" class="alert alert-fill-primary" name="submit" id="submit" value="Save" onclick="showSuccessToast()">Add</button>
-            </div>
-            </div>
           </div>
-        </fieldset>
-      </div>
-    </div>
-</form>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="col">
+            <label>Fullname</label>
+            <select class="form-control select2" name="userID" id="userID" style="width: 100%;">
+            <?php
+            foreach($results['user'] as $group)
+            {
+            echo '<option value="'.$group->userid.'">'.$group->firstname. ' '.$group->middlename.' '.$group->lastname.'</option>';
+            }
+            ?>
+            </select>
+          </div> 
+            <div class="col">
+              <label for="exampleInputPassword1">Loan Type</label>
+              <select class="form-control select2" name="loantypeID" style="width: 100%;">
+              <option value="1">Social Security System(SSS)</option>
+              <option value="2">Pag-IBIG</option>
+              <option value="3">Salary</option>
+              <option value="4">Emergency</option>
+              </select>
+            </div> 
+                 <div class="col">
+                <label for="birthdate">Date Granted</label>
+                <input id="dategranted" type="date" name="dategranted" class="form-control" required>
+              </div> 
+              <div class="col">
+                <label for="exampleInputPassword1">Loan Amount</label>
+                <input type="text" class="form-control" id="amount" name="amount" placeholder="Amount" required>           
+          </div>
+            <div class="col">
+           <label for="exampleInputPassword1">Deduction Amount</label>
+          <input type="text" class="form-control" id="deduction" name="deduction" placeholder="Amount" required>
+          </div>
+          <div class="col">
+             <label for="exampleInputPassword1">Term of Payments</label>
+            <select class="form-control select2" name="termofpaymentID" id="termofpaymentID" style="width: 100%;">
+            <option value="1">Monthly</option>
+            <option value="2">Payday</option>
+            <option value="3">Yearly</option>
+            </select>        
+        </div>
+        </div>            
+        <div class="modal-footer">
+        <!--<button type="submit" class="btn btn-primary" name="submit" value="Save" >Add</button> -->
+        <button type="submit" class="alert alert-fill-primary" name="submit" id="submit" value="Save">Add</button>
+        </div>
+        </div>
+    </form>
+  </div>
 </div>
-</div>
- </html>
- <script>
- $( "#submit" ).click(function() {
+</html>
 
-  
-});
-</script>
+
 
            
             

@@ -1,9 +1,4 @@
-  
-
-  <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>  
   <script src="<?php echo base_url(); ?>assets/vendors/js/vendor.bundle.base.js"></script>
-    <script src="<?php echo base_url(); ?>assets/js/jquery-toast-plugin/jquery.toast.min.js"></script>
-  <script src="<?php echo base_url(); ?>assets/js/jquery-toast-plugin/toastDemo.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/off-canvas.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/hoverable-collapse.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/template.js"></script>
@@ -17,9 +12,19 @@
   <script src="<?php echo base_url(); ?>assets/vendors/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/form-validation.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/bt-maxLength.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/dist/jquery.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/select2/select2.full.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/datatables/jquery.dataTables.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/datatables/dataTables.bootstrap.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/datatables/dataTables.buttons.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/datatables/buttons.flash.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/datatables/buttons.html5.min.js"></script>
 
-    
+</body>
+</html>
+
+</body>
+</html>
 
 </body>
   <script  type="text/javascript">  
@@ -61,6 +66,8 @@
                               }  
                          })  
                     });
+
+                       <script>
 
                     });  
                </script> 
