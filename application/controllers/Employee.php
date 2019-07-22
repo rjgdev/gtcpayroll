@@ -1,7 +1,8 @@
 <?php 
    class Employee extends CI_Controller {  
      
-		public function index() { 
+		public function index() 
+		{ 
 		  $data = array(
 				'title' => 'Employee Records'
 			);
@@ -12,8 +13,8 @@
   			$data=array('results'=>$results);
 			//$data ['records'] = $query->result();
 			$this->load->view('Template/Header', $data);
-			$this->load->view('Template/Footer',  $data);
 			$this->load->view('Employee/index', $data);
+			$this->load->view('Template/Footer',  $data);
 			//$this->load->view('Employee/index', $data);
 			//$this->load->view('Template/Footer');
 		} 
@@ -83,7 +84,8 @@
 				        'positionID' => $this->input->post('positionID') 
 	                );  
 	                $this->load->model('Employee_model');  
-	                $this->Employee_model->addemployee($data);  
+	                $this->Employee_model->addemployee($data); 
+	                $this->session->set_flashdata('employee', 'success'); 
 	                redirect("Employee");
 
 	           }  
@@ -104,7 +106,8 @@
 				        'positionID' => $this->input->post('positionID') 
 	                );  
 	                $this->load->model('Employee_model');  
-	                $this->Employee_model->update($this->input->post("userID"), $updated_data);  
+	                $this->Employee_model->update($this->input->post("userID"), $updated_data); 
+	                $this->session->set_flashdata('employee', 'success'); 
 	                redirect("Employee"); 
 	           }  
 	      }

@@ -4,12 +4,13 @@
     resetToastPosition();
     $.toast({
       heading: 'Success',
-      text: 'And these were just the basic demos! Scroll down to check further details on how to customize the output.',
+      text: 'Transaction successfully saved!',
       showHideTransition: 'slide',
       icon: 'success',
-      loaderBg: '#f96868',
-      position: 'top-right'
-    })
+      loaderBg: '#ffffff',
+      position: 'top-right',
+      hideAfter: 7000, 
+    });
   };
   showInfoToast = function() {
     'use strict';

@@ -1,8 +1,7 @@
-
  <script>
   $(function () {
-    $('.select2').select2()
-  })
+    $('.select2').select2();
+  });
 </script><div class="main-panel">
   <div class="content-wrapper">
     <nav aria-label="breadcrumb">

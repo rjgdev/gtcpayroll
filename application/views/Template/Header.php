@@ -11,7 +11,11 @@
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/css/vertical-layout-light/style.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/css/select2/select2.min.css">
+  <link rel="stylesheet" href="<?=base_url(); ?>assets/css/jquery-toast-plugin/jquery.toast.min.css">
   <link rel="shortcut icon" href="<?=base_url(); ?>assets/images/favicon.png" />
+    <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>  
+  <script src="<?php echo base_url(); ?>assets/js/jquery-toast-plugin/jquery.toast.min.js"></script>
+  <script src="<?php echo base_url(); ?>assets/js/toastDemo.js"></script>
 
 
 
@@ -130,13 +134,12 @@
             <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
               <img src="<?=base_url(); ?>assets/images/faces/face5.jpg" alt="profile"/>
             </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
                 <i class="mdi mdi-settings "></i>
                 Settings
               </a>
-              <a class="dropdown-item" href="/gtcpayroll/employee/logout"logout>
+              <a class="dropdown-item">
                 <i class="mdi mdi-logout"></i> 
                 Logout
               </a>
