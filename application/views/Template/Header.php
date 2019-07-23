@@ -139,7 +139,7 @@
                 <i class="mdi mdi-settings "></i>
                 Settings
               </a>
-              <a class="dropdown-item">
+               <a class="dropdown-item" href="/gtcpayroll/employee/logout"logout>
                 <i class="mdi mdi-logout"></i> 
                 Logout
               </a>
