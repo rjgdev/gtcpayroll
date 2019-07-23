@@ -33,6 +33,7 @@
           <div class="col-12">
             <div class="table-responsive">
               <table id="order-listing" class="table">
+                <span><?php if($this->session->flashdata('employee')=="success") echo '<script type="text/javascript"> showSuccessToast() </script>';?></span>
                 <thead>
                   <tr>
                       <th>User</th>
