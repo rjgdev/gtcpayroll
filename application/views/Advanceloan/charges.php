@@ -137,7 +137,6 @@ $fullname = $name->fullname;
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td></td>
                     <td align="right"><?php echo number_format(array_sum($totalchargeamount), 2, '.', ','); ?></td>
                     <td align="right"><?php echo number_format(array_sum($totaldeduction), 2, '.', ','); ?></td>
                    <td align="right"><?php echo number_format(array_sum($totalbalance), 2, '.', ','); ?></td>
