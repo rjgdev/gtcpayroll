@@ -41,19 +41,6 @@ class Employee_model extends CI_Model
 			$result3 = $departmentID->result();
             return array('user' => $result1, 'positionID' => $result2, 'departmentID' => $result3);
 		}
-
-	/*public function getalldepartment()
-		{
-			$department = $this->db->query('
-            SELECT * FROM department 
-        ');
-			$user = $this->db->query('
-            SELECT * FROM user 
-        ');
-			$result1 = $user->result();
-			$result2 = $department->result();
-            return array('user' => $result1, 'department' => $result2);
-		}*/
   
 
   	public function addemployee($data)  
