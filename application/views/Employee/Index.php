@@ -1,8 +1,4 @@
- <script>
-  $(function () {
-    $('.select2').select2();
-  });
-</script><div class="main-panel">
+<div class="main-panel">
   <div class="content-wrapper">
     <nav aria-label="breadcrumb">
                       <ol class="breadcrumb breadcrumb-custom bg-inverse-primary">
@@ -19,7 +15,7 @@
               <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i> Employee Records</h6>
             </div>
             <div class="mt-3 mt-md-0">
-              <button class="btn btn-sm text-muted border-0 dropdown-toggle px-0" type="button" id="dropdownMenuSizeButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Filter by </button>
+              <button class="btn btn-sm text-muted border-0 dropdown-toggle px-0" type="button" id="dropdownMenuSizeButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right: 15px;" >Filter by </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton2">
                 <h6 class="dropdown-header">Filter by</h6>
                 <a class="dropdown-item" href="#">All</a>
@@ -156,7 +152,7 @@
                     </div>
                     <div class="col">
                       <label for="gender">Department</label>
-                      <select class="form-control" name="departmentID">
+                      <select class="form-control select2" name="departmentID" style="width: 100%;">
                         <?php
                         foreach($results['departmentID'] as $department)
                         {
@@ -167,7 +163,7 @@
                     </div>
                     <div class="col">
                       <label for="gender">Position</label>
-                      <select class="form-control" name="positionID">
+                      <select class="form-control select2" name="positionID" style="width: 100%;">
                         <?php
                         foreach($results['positionID'] as $position)
                         {
@@ -188,4 +184,18 @@
                   </form>
                 </div>
               </div>
+            </fieldset>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+ <script>
+  $(function () {
+    $('.select2').select2();
+  });
+</script>
               

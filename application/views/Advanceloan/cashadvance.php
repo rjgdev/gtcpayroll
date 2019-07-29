@@ -31,10 +31,6 @@
          <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i>Cash Advance</span></li>
     </ol>
 </nav>
-  <div class="row">
-    <div class="col-md-4 grid-margin stretch-card">
-    </div>
-    <div class="col-md-4 grid-margin stretch-card">
     <div class="card">
         <div class="card-body test-card">
         <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
@@ -42,10 +38,7 @@
           <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i>Add Records</h6>
           </div>
         <div class="mt-3 mt-md-0">
-           
-            <button class="btn btn-primary btn-rounded btn-sm" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Cash Advance
-</button>
+            <button class="btn btn-primary btn-rounded btn-sm" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-plus-circle-outline"></i> Cash Advance</button>
         </div>
       </div>
       <div class="row">
@@ -110,7 +103,7 @@
             <?php
             foreach($results['useradvance'] as $user)
             {
-            echo '<option value="'.$user->userid.'">'.$user->firstname. ' '.$user->middlename.' '.$user->lastname.'</option>';
+              echo '<option value="'.$user->userid.'">'.$user->firstname. ' '.$user->lastname.'</option>';
             }
             ?>
             </select>
@@ -127,3 +120,9 @@
      </form>
   </div>
 </div>
+ <script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+  })
+</script>

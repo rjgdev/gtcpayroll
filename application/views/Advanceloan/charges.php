@@ -29,7 +29,7 @@
   });
 </script>
 <?php 
-foreach ($results['chargeuser'] as $name) {
+foreach ($results['fulldata'] as $name) {
 $fullname = $name->fullname;
 }
 ?>
@@ -49,10 +49,10 @@ $fullname = $name->fullname;
         <div class="card-body test-card">
         <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
           <div class="d-flex align-items-center">
-          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i>Add Records</h6>
+          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i> List of Employee</h6>
           </div>
         <div class="mt-3 mt-md-0">
-                      <button class="btn btn-primary btn-rounded btn-sm" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add Charges</button>
+                      <button class="btn btn-primary btn-rounded btn-sm" type="button" class="btn btn-primary" data-toggle="modal" data-target="#chargesModal"><i class="mdi mdi-plus-circle-outline"></i> Add Charges</button>
 
         </div>
       </div>
@@ -90,7 +90,7 @@ $fullname = $name->fullname;
         <div class="card-body test-card">
         <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
           <div class="d-flex align-items-center">
-          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-card-details"></i>Charges Records  || <?php echo $fullname; ?></h6>
+          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-card-details"></i> Charge Records  || <label class="badge badge-outline-info badge-pill"><?php echo $fullname; ?></label></h6>
 
 
           </div>
@@ -153,7 +153,7 @@ $fullname = $name->fullname;
 </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="chargesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <form id="commentForm" method="post" action="<?php echo site_url('AdvanceLoan/newCharges'); ?>">
         <div class="modal-content">
@@ -171,7 +171,7 @@ $fullname = $name->fullname;
               <?php
               foreach($results['userdropdown'] as $user)
               {
-              echo '<option value="'.$user->userid.'">'.$user->firstname. ' '.$user->middlename.' '.$user->lastname.'</option>';
+              echo '<option value="'.$user->userid.'">'.$user->firstname. ' '.$user->lastname.'</option>';
               }
               ?>
             </select>
@@ -210,9 +210,12 @@ $fullname = $name->fullname;
   </div>
 </div>
 
-
-
- </html>
+  <script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+  })
+</script>
  
             
 

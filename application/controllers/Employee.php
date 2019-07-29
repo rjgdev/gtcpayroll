@@ -6,17 +6,13 @@
 		  $data = array(
 				'title' => 'Employee Records'
 			);
-			//$this->load->view('Template/Header',$data);
+
 			$this->load->model('Employee_model');
   			$results = $this->Employee_model->getallposition();
-  			/*$results = $this->Employee_model->getalldepartment();*/
   			$data=array('results'=>$results);
-			//$data ['records'] = $query->result();
 			$this->load->view('Template/Header', $data);
 			$this->load->view('Employee/index', $data);
 			$this->load->view('Template/Footer',  $data);
-			//$this->load->view('Employee/index', $data);
-			//$this->load->view('Template/Footer');
 		} 
 
 		public function login()
@@ -25,6 +21,7 @@
 			$data['title'] = 'Login';
 			$this->load->view("login", $data);	
 		}
+		
 		public function login_validation()
 		{
 			$this->load->library('form_validation');
@@ -44,7 +41,7 @@
 					'password' => $password
 					);
 					$this->session->set_userdata('userdata',$session_data);
-					redirect(base_url() .'Employee');
+					redirect(base_url() .'dashboard');
 				}
 				else
 				{
@@ -89,7 +86,7 @@
 	                redirect("Employee");
 
 	           }  
-	           if($_POST["action"] == "Edit")  
+	           if($_POST["action"] == "Update")  
 	           {   
 	                $updated_data = array(  
 	                    'firstname' => $this->input->post('firstname'),

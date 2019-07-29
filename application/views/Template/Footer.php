@@ -1,4 +1,4 @@
-  
+  <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/vendors/js/vendor.bundle.base.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/off-canvas.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/hoverable-collapse.js"></script>
@@ -15,13 +15,11 @@
   <script src="<?php echo base_url(); ?>assets/js/bt-maxLength.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/select2/select2.full.min.js"></script>
 
+
 </body>
   <script  type="text/javascript">  
     $(document).ready(function(){
       
-      setTimeout(function(){
-    $toast.fadeOut(4000);
-}, 3000);
 
       $('.modal').on("hidden.bs.modal", function() {
         $(this).find('form').trigger('reset');
@@ -53,9 +51,9 @@
                    $('#hireddate').val(data.hireddate);
                    $('#departmentID').val(data.departmentID);
                    $('#positionID').val(data.positionID);    
-                   $('.modal-title').text("Edit User");  
+                   $('.modal-title').text("Update User");  
                    $('#userID').val(userID);  
-                   $('#action').val("Edit");  
+                   $('#action').val("Update");  
               }  
          })  
       });

@@ -14,6 +14,7 @@ class Department extends CI_Controller {
 		$this->load->view('Settings/department', $data);			
 		$this->load->view('Template/Footer',  $data);
 	}
+	
 	public function department_action(){  
 	           if($_POST["action"] == "Add")  
 	           {  
@@ -22,7 +23,7 @@ class Department extends CI_Controller {
 	                );  
 	                $this->load->model('Department_model');  
 	                $this->Department_model->adddepartment($data); 
-	                $this->session->set_flashdata('department', 'success'); 
+	                $this->session->set_flashdata('department', 'success');  
 	                redirect("Department/index");
 
 	           }  
@@ -38,16 +39,16 @@ class Department extends CI_Controller {
 	           }  
 	      }
 
-	    public function fetch_single_user()  
-	      {  
-	           $output = array();  
-	           $this->load->model("Department_model");  
-	           $data = $this->Department_model->fetch_single_user($_POST["departmentID"]);  
-	           foreach($data as $r)  
-	           {  
-	                $output['description'] = $r->description; 
-	           }  
-	           echo json_encode($output);  
-	      }    
+    public function fetch_single_user()  
+      {  
+           $output = array();  
+           $this->load->model("Department_model");  
+           $data = $this->Department_model->fetch_single_user($_POST["departmentID"]);  
+           foreach($data as $r)  
+           {  
+                $output['description'] = $r->description; 
+           }  
+           echo json_encode($output);  
+      }    
 }
 ?>
