@@ -22,13 +22,14 @@
 			<span class="menu-title">Manage Loan</span>
 			<i class="menu-arrow"></i>
 			</a>
-			<div class="collapse" id="ui-basic" style="">
-			 <ul class="nav flex-column sub-menu">
-					<li class="nav-item"><?php echo anchor('Advanceloan', 'Loan', 'class="nav-link"') ?>
-					<li class="nav-item"><?php echo anchor('Advanceloan/charges', 'Charges', 'class="nav-link"') ?></a></li>
-					<li class="nav-item"><?php echo anchor('Advanceloan/cashadvance', 'Cash Advance', 'class="nav-link"') ?></a></li>
-			</ul>
-			</div>
+		</li>
+		<div class="collapse" id="ui-basic">
+		 <ul class="nav flex-column sub-menu">
+				<li class="nav-item"><?php echo anchor('Advanceloan', 'Loan', 'class="nav-link"') ?></li>
+				<li class="nav-item"><?php echo anchor('Advanceloan/charges', 'Charges', 'class="nav-link"') ?></a></li>
+				<li class="nav-item"><?php echo anchor('Advanceloan/cashadvance', 'Cash Advance', 'class="nav-link"') ?></a></li>
+		</ul>
+		</div>
 			
 			<!---Master File Sidebar---->
 		<li class="nav-item">

@@ -45,10 +45,10 @@ $fullname = $fullname->fullname;
         <div class="card-body test-card">
         <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
           <div class="d-flex align-items-center">
-          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i>Add Records</h6></br>
+          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i> List of employee</h6></br>
           </div>
         <div class="mt-3 mt-md-0">
-            <button type="button" class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-flash"></i>Add Loan</button>
+            <button type="button" class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-plus-circle-outline"></i> Add Loan</button>
         </div>
       </div>
       <div class="row">
@@ -84,7 +84,7 @@ $fullname = $fullname->fullname;
         <div class="card-body test-card">
         <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
           <div class="d-flex align-items-center">
-          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-card-details"></i> Loan Records  || <?php echo $fullname; ?></h6>
+          <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-card-details"></i> Loan Records  || <label class="badge badge-outline-info badge-pill"><?php echo $fullname; ?></label></h6>
            
           </div>
       </div>
@@ -205,7 +205,12 @@ $fullname = $fullname->fullname;
   </div>
 </div>
 </html>
-
+ <script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+  })
+</script>
 
 
            

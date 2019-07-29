@@ -14,6 +14,7 @@ class Leave extends CI_Controller {
 		$this->load->view('Settings/leave', $data);			
 		$this->load->view('Template/Footer',  $data);
 	}
+	
 	public function setupleave_action(){  
 	           if($_POST["action"] == "Add")  
 	           {  
@@ -23,7 +24,7 @@ class Leave extends CI_Controller {
 	                );  
 	                $this->load->model('Leave_model');  
 	                $this->Leave_model->addleave($data); 
-	                $this->session->set_flashdata('leave', 'success'); 
+	                $this->session->set_flashdata('leave', 'success');  
 	                redirect("Leave/index");
 
 	           }  
@@ -40,17 +41,17 @@ class Leave extends CI_Controller {
 	           }  
 	      }
 
-	    public function fetch_single_user()  
-	      {  
-	           $output = array();  
-	           $this->load->model("Leave_model");  
-	           $data = $this->Leave_model->fetch_single_user($_POST["leaveID"]);  
-	           foreach($data as $r)  
-	           {  
-	                $output['typeofleave'] = $r->typeofleave;
-	                $output['numberofdays'] = $r->numberofdays;  
-	           }  
-	           echo json_encode($output);  
-	      }    
+    public function fetch_single_user()  
+      {  
+           $output = array();  
+           $this->load->model("Leave_model");  
+           $data = $this->Leave_model->fetch_single_user($_POST["leaveID"]);  
+           foreach($data as $r)  
+           {  
+                $output['typeofleave'] = $r->typeofleave;
+                $output['numberofdays'] = $r->numberofdays;  
+           }  
+           echo json_encode($output);  
+      }    
 }
 ?>

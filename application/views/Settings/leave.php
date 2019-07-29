@@ -8,22 +8,19 @@
 	    <nav aria-label="breadcrumb">
 	      <ol class="breadcrumb breadcrumb-custom bg-inverse-primary">
 	        <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-view-dashboard"></i> Dashboard</a></li>
-	        <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i>Leave</span></li>
+	        <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i> Leave</span></li>
 	      </ol>
 	    </nav>
-    <div class="row">
-    <div class="col-md-4 grid-margin stretch-card">
-    </div>
-    <div class="col-md-4 grid-margin stretch-card">
+    
         <div class="card">
       <div class="card-body test-card">
         
           <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
             <div class="d-flex align-items-center">
-              <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i>Set Up Leave</h6>
+              <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i> Set Up Leave</h6>
             </div>
             <div class="mt-3 mt-md-0">
-              <button class="btn btn-primary btn-rounded btn-sm" id="add_button" data-toggle="modal" data-target="#setupleaveModal"><i class="mdi mdi-account-plus "></i> New Leave</button>
+              <button class="btn btn-primary btn-rounded btn-sm" id="add_button" data-toggle="modal" data-target="#setupleaveModal"><i class="mdi mdi-plus-circle-outline"></i> New Leave</button>
             </div>
         </div>
         <div class="row">
@@ -36,7 +33,7 @@
                       <th>Leave ID</th>
                       <th>Type of Leave</th>
                       <th>No. of Days</th>
-
+					            <th>Action</th>
                   </tr>
                 </thead>
                 <tbody id="showdata">
