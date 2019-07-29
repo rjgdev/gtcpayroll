@@ -29,6 +29,20 @@
 					<li class="nav-item"><?php echo anchor('Advanceloan/cashadvance', 'Cash Advance', 'class="nav-link"') ?></a></li>
 			</ul>
 			</div>
+			<!---employee time in & out---->
+			<li class="nav-item">
+		<a class="nav-link" data-toggle="collapse" href="#masterfile" aria-expanded="false" aria-controls="masterfile">
+			<i class="mdi mdi mdi-settings menu-icon"></i>
+			<span class="menu-title">Employee time in & out</span>
+			<i class="menu-arrow"></i>
+		</a>
+		</li>
+
+		<div class="collapse" id="masterfile">
+			<ul class="nav flex-column sub-menu">
+			<li class="nav-item"><?php echo anchor('timeinout', ' Import', 'class="nav-link"'); ?></li>
+			</ul>
+		</div>
 			
 			<!---Master File Sidebar---->
 		<li class="nav-item">
