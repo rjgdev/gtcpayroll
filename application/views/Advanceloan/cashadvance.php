@@ -38,7 +38,6 @@
           <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i>Add Records</h6>
           </div>
         <div class="mt-3 mt-md-0">
-           
             <button class="btn btn-primary btn-rounded btn-sm" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-plus-circle-outline"></i> Cash Advance</button>
         </div>
       </div>
@@ -104,7 +103,7 @@
             <?php
             foreach($results['useradvance'] as $user)
             {
-            echo '<option value="'.$user->userid.'">'.$user->firstname. ' '.$user->lastname.'</option>';
+              echo '<option value="'.$user->userid.'">'.$user->firstname. ' '.$user->lastname.'</option>';
             }
             ?>
             </select>
