@@ -43,6 +43,7 @@
                         <th>Fullname</th>
                         <th>Time IN</th>
                         <th>Time Out</th>
+                         <th>Over Time (HRS)</th>
 
                     </tr>
                     </thead>
@@ -55,6 +56,7 @@
                         <td><?php echo $row['fullname']; ?></td>
                         <td><?php echo $row['timein']; ?></td>
                         <td><?php echo $row['timeout']; ?></td>
+                        <td><?php echo $row['overtime']; ?></td>
                     </tr>
                     <?php } }else{ ?>
                         <tr><td colspan="5">No member(s) found...</td></tr>

@@ -42,6 +42,7 @@
     resetToastPosition();
     $.toast({
       heading: 'Danger',
+       //text: 'Deletion successful.',
       text: 'And these were just the basic demos! Scroll down to check further details on how to customize the output.',
       showHideTransition: 'slide',
       icon: 'error',

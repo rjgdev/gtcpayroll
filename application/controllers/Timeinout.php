@@ -69,8 +69,9 @@ class Timeinout extends CI_Controller {
                                 'numberofcount' => $row['NumberOfCount'],
                                 'userID' => $row['UserID'],
                                 'fullname' => $row['Fullname'],
-                                'timein' => $row['TimeIN'],
-                                'timeout' => $row['TimeOut']
+                                'timein' => date("Y-m-d H:i:s", strtotime($row['TimeIN'])),
+                                'timeout' => date("Y-m-d H:i:s", strtotime($row['TimeOut'])),
+                                'overtime' => $row['Overtimehrsminutes']
                                 
                             );
                             
@@ -111,7 +112,7 @@ class Timeinout extends CI_Controller {
                         // Status message with imported data count
                         $notAddCount = ($rowCount - ($insertCount + $updateCount));
                         $successMsg = 'Members imported successfully. Total Rows ('.$rowCount.') | Inserted ('.$insertCount.') | Updated ('.$updateCount.') | Not Inserted ('.$notAddCount.')';
-                        $this->session->set_userdata('success_msg', $successMsg);
+                        $this->session->set_userdata('success_msg', $successMsg , 'success');
                     }
                 }else{
                     $this->session->set_userdata('error_msg', 'Error on file upload, please try again.');
