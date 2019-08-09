@@ -32,14 +32,14 @@
 			</div>
 			<!---employee time in & out---->
 			<li class="nav-item">
-		<a class="nav-link" data-toggle="collapse" href="#masterfile" aria-expanded="false" aria-controls="masterfile">
+		<a class="nav-link" data-toggle="collapse" href="#timeinandout" aria-expanded="false" aria-controls="timeinandout">
 			<i class="mdi mdi mdi-settings menu-icon"></i>
 			<span class="menu-title">Employee time in & out</span>
 			<i class="menu-arrow"></i>
 		</a>
 		</li>
 
-		<div class="collapse" id="masterfile">
+		<div class="collapse" id="timeinandout">
 			<ul class="nav flex-column sub-menu">
 			<li class="nav-item"><?php echo anchor('timeinout', ' Import', 'class="nav-link"'); ?></li>
 			</ul>

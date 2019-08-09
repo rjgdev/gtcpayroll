@@ -24,21 +24,22 @@
       $('.modal').on("hidden.bs.modal", function() {
         $(this).find('form').trigger('reset');
         $('.modal-title').text("New Employee");  
-         $('#userID').val("");  
+         $('#employeeID').val("");  
          $('#action').val("Save");  
       });
 
       $('.item-edit').unbind('click').bind('click', function(){  
                   
-           var userID = $(this).attr("id");  
+           var employeeID = $(this).attr("id");  
          $.ajax({  
               url:"<?php echo base_url(); ?>Employee/fetch_single_user",  
               method:"POST",  
-              data:{userID:userID},  
+              data:{employeeID:employeeID},  
               dataType:"json",  
               success:function(data)  
               {  
-                   $('#addModal').modal('show');  
+                   $('#addModal').modal('show');
+                   $('#status').val(data.status);  
                    $('#firstname').val(data.firstname);
                    $('#middlename').val(data.middlename); 
                    $('#lastname').val(data.lastname);
@@ -50,9 +51,16 @@
                    $('#citizenship').val(data.citizenship);
                    $('#hireddate').val(data.hireddate);
                    $('#departmentID').val(data.departmentID);
-                   $('#positionID').val(data.positionID);    
-                   $('.modal-title').text("Update User");  
-                   $('#userID').val(userID);  
+                   $('#positionID').val(data.positionID);
+                   $('#basicsalary').val(data.basicsalary);
+                   $('#dailyrate').val(data.dailyrate);
+                   $('#allowance').val(data.allowance);
+                   $('#tinnumber').val(data.tinnumber);
+                   $('#sssnumber').val(data.sssnumber);
+                   $('#philhealthnumber').val(data.philhealthnumber);
+                   $('#pagibignumber').val(data.pagibignumber);   
+                   $('.modal-title').text("Update employee");  
+                   $('#employeeID').val(employeeID);  
                    $('#action').val("Update");  
               }  
          })  

@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Payroll </title>
+
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/css/vendor.bundle.base.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
@@ -13,7 +14,7 @@
   <link rel="stylesheet" href="<?=base_url(); ?>assets/css/select2/select2.min.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/css/jquery-toast-plugin/jquery.toast.min.css">
   <link rel="shortcut icon" href="<?=base_url(); ?>assets/images/favicon.png" />
-    <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>  
+  <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/jquery-toast-plugin/jquery.toast.min.js"></script>
   <script src="<?php echo base_url(); ?>assets/js/toastDemo.js"></script>
 

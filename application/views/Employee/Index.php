@@ -41,15 +41,15 @@
                 </thead>
                 <tbody id="showdata">
                   <?php
-                        foreach ($results['user'] as $r) {
+                        foreach ($results['employee'] as $r) {
 
                           echo '<tr>';
                           echo '<td class="py-1 user-circle">
                             <img src="assets/images/faces/profileimg.png" alt="image"/>'.' '.$r->firstname.' '.$r->lastname.'</td>';
                           echo '<td>'.$r->contactinfo.'</td>'; 
                           echo '<td>'.$r->hireddate.'</td>';  
-                          echo '<td><label class="badge badge-info">Active</label>'.$r->status.'</td>'; 
-                          echo '<td><button type="button" name="update" id="'.$r->userID.'" class="btn btn-outline-primary item-edit" data-target="#addModal">View</button></td>' ;
+                          echo '<td><label class="badge badge-danger">'.$r->status.'</label></td>'; 
+                          echo '<td><button type="button" name="update" id="'.$r->employeeID.'" class="btn btn-outline-primary item-edit" data-target="#addModal">View</button></td>' ;
                         }
                       ?>
                 </tbody>
@@ -74,109 +74,177 @@
                   <div class="row grid-margin">
                   <div class="col-lg-12">
 
-                  <div class="form-group">
-                    <div class="row">
-                    <div class="col">
-                      <div class="form-check form-check-primary">
-                        <label class="form-check-label">
-                          <input type="checkbox" class="form-check-input" id="s2" name="s2[]">
-                          Active
-                        </label>
+                    <ul class="nav nav-pills nav-pills-success" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" id="pills-info-tab" data-toggle="pill" href="#pills-info" role="tab" aria-controls="pills-info" aria-selected="true">Employee Info</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" id="pills-detail-tab" data-toggle="pill" href="#pills-detail" role="tab" aria-controls="pills-detail" aria-selected="false">Payroll Details</a>
+                    </li>
+                  </ul>
+
+                  <div class="tab-content" id="pills-tabContent">
+
+                    <!-- EMPLOYEE INFO -->
+                    <div class="tab-pane fade show active" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab"> 
+
+                      <div class="form-group">
+                        <div class="row">
+                        <div class="col">
+                          <div class="form-check form-check-primary">
+                            <label class="form-check-label" for="status">
+                              <input type="hidden" id="status" name="status" value="inactive">
+                              <input type="checkbox" id="status" name="status" value="active">
+                              Active
+                            </label>
+                          </div>
+                        </div>                      
+                        </div>
                       </div>
-                    </div>                      
+
+                      <div class="form-group">
+                        <div class="row">
+                        <div class="col">
+                          <label for="firstname">First Name</label>
+                          <input id="firstname" type="text" name="firstname" class="form-control"  required>
+                        </div>
+                        <div class="col">
+                          <label for="middlename">Middle Name</label>
+                          <input id="middlename" type="text" name="middlename" class="form-control">
+                        </div>
+                        <div class="col">
+                          <label for="lastname">Last Name</label>
+                          <input id="lastname" type="text" name="lastname" class="form-control" required>
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="row">
+                        <div class="col">
+                          <label for="address">Address</label>
+                          <input id="address" type="text" name="address" class="form-control"  required>
+                        </div>
+                        <div class="col">
+                          <label for="birthdate">Birthdate</label>
+                          <input id="birthdate" type="date" name="birthdate" class="form-control" required>
+                        </div>
+                        <div class="col">
+                          <label for="contactinfo">Contact No.</label>
+                          <input id="contactinfo" type="text" name="contactinfo" class="form-control" required>
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="row">
+                        <div class="col">
+                          <label for="gender">Gender</label>
+                          <select class="form-control" name="gender">
+                            <option>Male</option>
+                            <option>Female</option>
+                          </select>
+                        </div>
+                        <div class="col">
+                          <label for="civilstatus">Civil Status</label>
+                          <select class="form-control" name="civilstatus">
+                            <option>Single</option>
+                            <option>Married</option>
+                          </select>
+                        </div>
+                        <div class="col">
+                          <label for="citizenship">Citizenship</label>
+                          <input id="citizenship" type="text" name="citizenship" class="form-control" required>
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="row">
+                        <div class="col">
+                          <label for="hireddate">Hired Date</label>
+                          <input id="hireddate" type="date" name="hireddate" class="form-control"  required>
+                        </div>
+                        <div class="col">
+                          <label for="gender">Department</label>
+                          <select class="form-control select2" name="departmentID" style="width: 100%;">
+                            <?php
+                            foreach($results['departmentID'] as $department)
+                            {
+                            echo '<option value="'.$department->departmentID.'">'.$department->description.'</option>';
+                            }
+                            ?>  
+                          </select>
+                        </div>
+                        <div class="col">
+                          <label for="gender">Position</label>
+                          <select class="form-control select2" name="positionID" style="width: 100%;">
+                            <?php
+                            foreach($results['positionID'] as $position)
+                            {
+                            echo '<option value="'.$position->positionID.'">'.$position->description.'</option>';
+                            }
+                            ?>
+                          </select>
+                        </div>
+                        </div>
+                      </div>
                     </div>
+                    <!-- EMPLOYEE INFO -->
+
+                    <!-- PAYROLL DETAILS -->
+                    <div class="tab-pane fade" id="pills-detail" role="tabpanel" aria-labelledby="pills-detail-tab">
+                      <div class="form-group">
+                        <div class="row">
+                        <div class="col">
+                          <label for="basicsalary">Basic Salary</label>
+                          <input id="basicsalary" type="text" name="basicsalary" class="form-control"  required>
+                        </div>
+                        <div class="col">
+                          <label for="dailyrate">Daily Rate</label>
+                          <input id="dailyrate" type="text" name="dailyrate" class="form-control">
+                        </div>
+                        <div class="col">
+                          <label for="allowance">Allowance</label>
+                          <input id="allowance" type="text" name="allowance" class="form-control" required>
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="row">
+                        <div class="col">
+                          <label for="tinnumber">Tin No.</label>
+                          <input id="tinnumber" type="text" name="tinnumber" class="form-control"  required>
+                        </div>
+                        <div class="col">
+                          <label for="sssnumber">SSS No.</label>
+                          <input id="sssnumber" type="text" name="sssnumber" class="form-control">
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="row">
+                        <div class="col">
+                          <label for="philhealthnumber">Philhealth</label>
+                          <input id="philhealthnumber" type="text" name="philhealthnumber" class="form-control"  required>
+                        </div>
+                        <div class="col">
+                          <label for="pagibignumber">Pag-ibig</label>
+                          <input id="pagibignumber" type="text" name="pagibignumber" class="form-control">
+                        </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    <!-- PAYROLL DETAILS -->             
+
                   </div>
 
-                  <div class="form-group">
-                    <div class="row">
-                    <div class="col">
-                      <label for="firstname">First Name</label>
-                      <input id="firstname" type="text" name="firstname" class="form-control"  required>
-                    </div>
-                    <div class="col">
-                      <label for="middlename">Middle Name</label>
-                      <input id="middlename" type="text" name="middlename" class="form-control">
-                    </div>
-                    <div class="col">
-                      <label for="lastname">Last Name</label>
-                      <input id="lastname" type="text" name="lastname" class="form-control" required>
-                    </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="row">
-                    <div class="col">
-                      <label for="address">Address</label>
-                      <input id="address" type="text" name="address" class="form-control"  required>
-                    </div>
-                    <div class="col">
-                      <label for="birthdate">Birthdate</label>
-                      <input id="birthdate" type="date" name="birthdate" class="form-control" required>
-                    </div>
-                    <div class="col">
-                      <label for="contactinfo">Contact No.</label>
-                      <input id="contactinfo" type="text" name="contactinfo" class="form-control" required>
-                    </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="row">
-                    <div class="col">
-                      <label for="gender">Gender</label>
-                      <select class="form-control" name="gender">
-                        <option>Male</option>
-                        <option>Female</option>
-                      </select>
-                    </div>
-                    <div class="col">
-                      <label for="civilstatus">Civil Status</label>
-                      <select class="form-control" name="civilstatus">
-                        <option>Single</option>
-                        <option>Married</option>
-                      </select>
-                    </div>
-                    <div class="col">
-                      <label for="citizenship">Citizenship</label>
-                      <input id="citizenship" type="text" name="citizenship" class="form-control" required>
-                    </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="row">
-                    <div class="col">
-                      <label for="hireddate">Hired Date</label>
-                      <input id="hireddate" type="date" name="hireddate" class="form-control"  required>
-                    </div>
-                    <div class="col">
-                      <label for="gender">Department</label>
-                      <select class="form-control select2" name="departmentID" style="width: 100%;">
-                        <?php
-                        foreach($results['departmentID'] as $department)
-                        {
-                        echo '<option value="'.$department->departmentID.'">'.$department->description.'</option>';
-                        }
-                        ?>  
-                      </select>
-                    </div>
-                    <div class="col">
-                      <label for="gender">Position</label>
-                      <select class="form-control select2" name="positionID" style="width: 100%;">
-                        <?php
-                        foreach($results['positionID'] as $position)
-                        {
-                        echo '<option value="'.$position->positionID.'">'.$position->description.'</option>';
-                        }
-                        ?>
-                      </select>
-                    </div>
-                    </div>
-                  </div>
             
                     <div class="modal-footer">
-                      <input type="hidden" name="userID" id="userID" />  
+                      <input type="hidden" name="employeeID" id="employeeID" />  
                       <input type="submit" name="action" id="action" class="btn btn-primary" value="Add" />   
                   </div>
                   </fieldset>
