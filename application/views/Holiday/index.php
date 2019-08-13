@@ -28,7 +28,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb breadcrumb-custom bg-inverse-primary">
         <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-view-dashboard"></i> Dashboard</a></li>
-         <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i>Cash Advance</span></li>
+         <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i>Holiday Records</span></li>
     </ol>
 </nav>
     <div class="card">
@@ -38,43 +38,37 @@
           <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i>Add Records</h6>
           </div>
         <div class="mt-3 mt-md-0">
-            <button class="btn btn-primary btn-rounded btn-sm" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-plus-circle-outline"></i> Cash Advance</button>
+            <button class="btn btn-primary btn-rounded btn-sm" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="mdi mdi-plus-circle-outline"></i> Holiday Records</button>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <div class="table-responsive">
             <table id="detailed_cashadvance" class="table table-bordered table-striped align">
+              <span><?php if($this->session->flashdata('holiday')=="success") echo '<script type="text/javascript"> showSuccessToast() </script>';?></span>
+              <span><?php if($this->session->flashdata('delete')=="Warning") echo '<script type="text/javascript"> showWarningToast() </script>';?></span>
               <thead>
                 <tr>
-                  <th style="width: 40px ! important;">User ID</th>
-                  <th>Fullname</th> 
-                  <th>Amount</th> 
-                  <th>Paid</th>                            
-                </tr>
-              </thead>
+                  <th style="width: 40px ! important;">Date</th>
+                  <th></th> 
+                  <th>Name</th> 
+                  <th>Type of Holiday's</th>
+                  <th>Function</th>    
              <tbody>
-                  <?php 
-                  foreach ($results['cashresult'] as $result) 
-                  $totalamount[] = $result->amount;
-                  $totalpaid[] = $result->paid;
+                <?php 
+                  foreach ($results['holiday'] as $result) 
+                 
                   {
                     echo '<tr>';                    
-                    echo '<td>'.$result->employeeID.'</td>';
-                    echo '<td>'.$result->fullname.'</td>';
-                    echo '<td align = "right">'.number_format($result->amount, 2, '.', ',').'</td>';
-                    echo '<td align = "right">'.number_format($result->paid, 2, '.', ',').'</td>';
+                    echo '<td>'.$result->date_of_holiday.'</td>';
+                    echo '<td>'.$result->weekday.'</td>';
+                    echo '<td>'.$result->Name.'</td>';
+                    echo '<td>'.$result->typeofholidayID.'</td>';
+                     echo "<td><a href='Holiday/deletedata?id=".$result->holidayID."'>Delete</a></td>";
                   }
-                  ?>
+                  ?> 
               </tbody>
-              <tfoot>
-                <tr>
-                   <th>Total</th>
-                   <td></td>
-                   <td align="right"><?php echo number_format(array_sum($totalamount), 2, '.', ','); ?></td>
-                   <td align="right"><?php echo number_format(array_sum($totalpaid), 2, '.', ','); ?></td>
-                </tr>
-              </tfoot>
+             
             </table>
           </div>
         </div>
@@ -88,33 +82,30 @@
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <form id="commentForm" method="post" action="<?php echo site_url('AdvanceLoan/newCashAdvance'); ?>">
+    <form id="commentForm" method="post" action="<?php echo site_url('Holiday/newHoliday'); ?>">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cash Advance</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Holiday</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
             <div class="form-group">
-            <label>Fullname</label>
-            <select class="form-control select2" name="userID" id="userID" style="width: 100%;">
-            <?php
-            foreach($results['useradvance'] as $user)
-            {
-              echo '<option value="'.$user->userid.'">'.$user->firstname. ' '.$user->lastname.'</option>';
-            }
-            ?>
-            </select>
+            <label for="birthdate">Date</label>
+            <input id="date" type="date" name="dateofholiday" class="form-control" value="<?php echo date("m/d/Y", strtotime("-1 days")); ?>"  required>
             </div> 
         <div class="form-group">
-        <label for="exampleInputPassword1">Amount</label>
-        <input type="text" class="form-control" id="cashamount" name="cashamount" placeholder="Amount"required>
+        <label for="exampleInputPassword1">Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" placeholder="Name"required>
         </div>
-      </div>
+         <label for="exampleInputPassword1">Type of Holiday</label>
+            <select class="form-control select2" name="typeofholidayID" id="typeofholidayID" style="width: 100%;">
+            <option value="1">Regular Holidays</option>
+            <option value="2">Special Non-working Holidays</option>
+            </select>
       <div class="modal-footer"> 
-        <button type="submit" name="submit"   class="btn btn-primary btn-rounded btn-sm">Save changes</button>
+        <button type="submit" name="submit"   class="btn btn-primary btn-rounded btn-sm">Save Holiday</button>
       </div>
     </div>
      </form>

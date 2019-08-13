@@ -72,7 +72,7 @@ $fullname = $name->fullname;
                 <?php 
                 foreach ($results['chargeuser'] as $chargeuser) {
                     echo '<tr>';                  
-                    echo '<td style="width: 40px ! important;"><a href = '.base_url()."AdvanceLoan/charges/?charge_id=".$chargeuser->userid.'>'.$chargeuser->userid.'</a></td>';
+                    echo '<td style="width: 40px ! important;"><a href = '.base_url()."AdvanceLoan/charges/?charge_id=".$chargeuser->employeeID.'>'.$chargeuser->employeeID.'</a></td>';
                     echo '<td>'.$chargeuser->fullname.'</td>';  
                      echo '</tr>';  
                 }

@@ -12,20 +12,20 @@ class Advanceloan_model extends CI_Model
     $cond = "= " .$id;
     }
 		 $fullname = $this->db->query('
-            SELECT userid, firstname, middlename, lastname FROM user group by userid
+            SELECT employeeID, firstname, middlename, lastname FROM employee group by employeeID
         ');
          $loan = $this->db->query("
             SELECT 
-            loanid,userid,fullname
+            loanid,employeeID,fullname
             from
             (
                 SELECT 
-                srln.userid,srln.loanid,
+                srln.employeeID,srln.loanid,
                 CONCAT(usrs.firstname,' ', usrs.middlename,' ', usrs.lastname) as fullname
                 FROM  userloan as srln 
-                LEFT JOIN user as usrs on srln.userid = usrs.userid
+                LEFT JOIN employee as usrs on srln.employeeID = usrs.employeeID
             )a
-            group by userid
+            group by employeeID
         ");
         $userdata = $this->db->query("
              SELECT 
@@ -52,8 +52,8 @@ class Advanceloan_model extends CI_Model
                 sum(srln.amount) as amount,
                 srln.balance
                 FROM  userloan as srln 
-                LEFT JOIN user as usrs on srln.userid = usrs.userid
-                WHERE srln.userid ".$cond."  group by loantypeid
+                LEFT JOIN employee as usrs on srln.employeeID = usrs.employeeID
+                WHERE srln.employeeID ".$cond."  group by loantypeid
             )a
         ");
                 $result3 = $userdata->result();
@@ -75,7 +75,7 @@ class Advanceloan_model extends CI_Model
     }
 
          $select = $this->db->query('
-            SELECT userid, firstname, middlename, lastname FROM user group by userid
+            SELECT employeeID, firstname, middlename, lastname FROM employee group by employeeID
         ');
 
           $chargeuser = $this->db->query("
@@ -84,10 +84,10 @@ class Advanceloan_model extends CI_Model
                 FROM
                 (
                     SELECT 
-                    c.userid, concat(usr.firstname,' ', usr.middlename,' ',usr.lastname) as fullname 
+                    c.employeeID, concat(usr.firstname,' ', usr.middlename,' ',usr.lastname) as fullname 
                     FROM charge as c
-                    left join user as usr on usr.userid = c.userid
-                    GROUP BY c.userid
+                    left join employee as usr on usr.employeeID = c.employeeID
+                    GROUP BY c.employeeID
                 )a
 
         ");
@@ -111,8 +111,8 @@ class Advanceloan_model extends CI_Model
                     date_format(c.dategranted, '%m/%d/%Y') as dategranted,
                     c.balance
                     FROM charge as c
-                    LEFT JOIN user as usr on c.userid = usr.userid
-                    WHERE c.userid ".$cond."
+                    LEFT JOIN employee as usr on c.employeeID = usr.employeeID
+                    WHERE c.employeeID ".$cond."
                 )a
 
             ");
@@ -127,7 +127,7 @@ class Advanceloan_model extends CI_Model
 
     {
             $fullname = $this->db->query('
-                SELECT userid, firstname, middlename, lastname FROM user group by userid
+                SELECT employeeID, firstname, middlename, lastname FROM employee group by employeeID
             ');
 
 
@@ -137,13 +137,13 @@ class Advanceloan_model extends CI_Model
                     FROM
                     (
                     SELECT
-                    cash.userid,
+                    cash.employeeID,
                     concat(usr.lastname,' ',usr.middlename,' ', usr.lastname) as fullname,
                     cash.amount,
                     cash.paid,
                     date_format(createdate,'%m/%d%/%Y') as create_date
                     from cashadvance as cash 
-                    left join user as usr on cash.userid = usr.userid
+                    left join employee as usr on cash.employeeID = usr.employeeID
                     )a
             ");
            

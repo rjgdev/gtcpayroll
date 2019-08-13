@@ -5,7 +5,7 @@ class timeinout_model extends CI_Model{
     
     function __construct() {
         // Set table name
-        $this->table = 'timein';
+        $this->table = 'dailytimerecord';
     }
     
     /*

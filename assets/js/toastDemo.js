@@ -29,7 +29,7 @@
     resetToastPosition();
     $.toast({
       heading: 'Warning',
-      text: 'And these were just the basic demos! Scroll down to check further details on how to customize the output.',
+      text: 'Delete successfully.',
       showHideTransition: 'slide',
       icon: 'warning',
       loaderBg: '#57c7d4',
@@ -41,7 +41,8 @@
     resetToastPosition();
     $.toast({
       heading: 'Danger',
-      text: 'And these were just the basic demos! Scroll down to check further details on how to customize the output.',
+      text: 'Delete successfully.',
+     // text: 'And these were just the basic demos! Scroll down to check further details on how to customize the output.',
       showHideTransition: 'slide',
       icon: 'error',
       loaderBg: '#f2a654',
