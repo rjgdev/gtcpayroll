@@ -29,35 +29,35 @@ class Employee_model extends CI_Model
 			$positionID = $this->db->query('
             SELECT * FROM position 
         ');
-			$user = $this->db->query('
-            SELECT * FROM user 
+			$employee = $this->db->query('
+            SELECT * FROM employee 
         ');
 			$departmentID = $this->db->query('
             SELECT * FROM department 
         ');
 
-			$result1 = $user->result();
+			$result1 = $employee->result();
 			$result2 = $positionID->result();
 			$result3 = $departmentID->result();
-            return array('user' => $result1, 'positionID' => $result2, 'departmentID' => $result3);
+            return array('employee' => $result1, 'positionID' => $result2, 'departmentID' => $result3);
 		}
   
 
   	public function addemployee($data)  
 	    {  
-	       $this->db->insert('user', $data);  
+	       $this->db->insert('employee', $data);  
 	    }
 
-    public function fetch_single_user($userID)  
+    public function fetch_single_user($employeeID)  
         {  
-           $this->db->where("userID", $userID);  
-           $query=$this->db->get('user');  
+           $this->db->where("employeeID", $employeeID);  
+           $query=$this->db->get('employee');  
            return $query->result();  
         }  
-    public function update($userID, $data)  
+    public function update($employeeID, $data)  
         {  
-           $this->db->where("userID", $userID);  
-           $this->db->update("user", $data);  
+           $this->db->where("employeeID", $employeeID);  
+           $this->db->update("employee", $data);  
       	}    
 }
 ?>

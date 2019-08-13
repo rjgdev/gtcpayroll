@@ -6,7 +6,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb breadcrumb-custom bg-inverse-primary">
     <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-view-dashboard"></i> Dashboard</a></li>
-    <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i> Employee Records Time IN & Out</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i> Employee Records Time In & Out</span></li>
     </ol>
 </nav>
 <!-- DataTable -->
@@ -14,7 +14,7 @@
 <div class="card-body test-card">
     <div class="d-flex align-items-center justify-content-between flex-wrap border-bottom pb-3 mb-3">
         <div class="d-flex align-items-center">
-        <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i> Employee Records Time IN & Out</h6>
+        <h6 class="mb-0 font-weight-bold"><i class="mdi mdi-account-multiple-outline"></i> Employee Records Time In & Out</h6>
         </div>
         <div class="mt-3 mt-md-0">
         <a href="javascript:void(0);"><button type="button" class="btn btn-primary btn-rounded btn-sm" data-toggle="modal" data-target="#exampleModal" onclick="formToggle('importFrm');"><i class="mdi mdi-file-import
