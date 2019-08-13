@@ -2,7 +2,7 @@
   <div class="content-wrapper">
     <nav aria-label="breadcrumb">
                       <ol class="breadcrumb breadcrumb-custom bg-inverse-primary">
-                        <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-view-dashboard"></i> Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>Dashboard"><i class="mdi mdi-view-dashboard"></i> Dashboard</a></li>
                         <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i> Employee Records</span></li>
                       </ol>
                     </nav>
@@ -48,7 +48,7 @@
                             <img src="assets/images/faces/profileimg.png" alt="image"/>'.' '.$r->firstname.' '.$r->lastname.'</td>';
                           echo '<td>'.$r->contactinfo.'</td>'; 
                           echo '<td>'.$r->hireddate.'</td>';  
-                          echo '<td><label class="badge badge-danger">'.$r->status.'</label></td>'; 
+                          echo '<td><label class="badge badge-success">'.$r->status.'</label></td>'; 
                           echo '<td><button type="button" name="update" id="'.$r->employeeID.'" class="btn btn-outline-primary item-edit" data-target="#addModal">View</button></td>' ;
                         }
                       ?>

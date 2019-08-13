@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Payroll </title>
+  <title>GTC | Payroll Management System</title>
 
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?=base_url(); ?>assets/vendors/css/vendor.bundle.base.css">
@@ -30,8 +30,12 @@
   <div class="container-scroller">
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center">
-        <a class="navbar-brand brand-logo" href="<?php echo base_url(); ?>dashboard"><img src="<?php echo base_url(); ?>assets/images/BlackCoders.png" alt="logo" style="width:75%" align="left"/></a>
-        <a class="navbar-brand brand-logo-mini"><img src="<?php echo base_url(); ?>assets/images/BlackCoders-mini.png" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="<?php echo base_url(); ?>Dashboard">
+
+          
+          <span class="logo-lg"><img style="width: 50px; height: 50px;" src="<?php echo base_url(); ?>assets/images/swirl.png"> <img style="width: 140px; height: 50px;" src="<?php echo base_url(); ?>assets/images/pms.png"></span>
+
+        <a class="navbar-brand brand-logo-mini"><img src="<?php echo base_url(); ?>assets/images/GTC-mini.png" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">

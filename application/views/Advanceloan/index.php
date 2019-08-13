@@ -35,7 +35,7 @@ $fullname = $fullname->fullname;
 <div class="content-wrapper">
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb breadcrumb-custom bg-inverse-primary">
-        <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-view-dashboard"></i> Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>Dashboard"><i class="mdi mdi-view-dashboard"></i> Dashboard</a></li>
          <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i> Employee Loan</span></li>
     </ol>
 </nav>
