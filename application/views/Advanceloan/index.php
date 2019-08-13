@@ -66,7 +66,7 @@ $fullname = $fullname->fullname;
                 <?php 
                 foreach ($results['loan'] as $loan) {
                     echo '<tr>';                  
-                    echo '<td style="width: 40px ! important;"><a href = '.base_url()."AdvanceLoan/?link_id=".$loan->userid.'>'.$loan->userid.'</a></td>';
+                    echo '<td style="width: 40px ! important;"><a href = '.base_url()."AdvanceLoan/?link_id=".$loan->employeeID.'>'.$loan->employeeID.'</a></td>';
                     echo '<td>'.$loan->fullname.'</td>';  
                      echo '</tr>';  
                 }
@@ -161,7 +161,7 @@ $fullname = $fullname->fullname;
             <?php
             foreach($results['user'] as $group)
             {
-            echo '<option value="'.$group->userid.'">'.$group->firstname. ' '.$group->middlename.' '.$group->lastname.'</option>';
+            echo '<option value="'.$group->employeeID.'">'.$group->firstname. ' '.$group->middlename.' '.$group->lastname.'</option>';
             }
             ?>
             </select>
