@@ -1,7 +1,8 @@
 
       <div class="main-panel">
         <div class="content-wrapper">
-					<div class="row">
+          <span><?php if($this->session->flashdata('dashboard')=="success") echo '<script type="text/javascript"> showSuccessToast() </script>';?></span>
+          <div class="row">
             <div class="col-12">
               <div class="card">
                 <div class="card-body">

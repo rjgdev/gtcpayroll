@@ -28,7 +28,7 @@
          $('#action').val("Save");  
       });
 
-      $('.item-edit').unbind('click').bind('click', function(){  
+      $('.employee-edit').unbind('click').bind('click', function(){  
                   
            var employeeID = $(this).attr("id");  
          $.ajax({  
@@ -43,10 +43,13 @@
                    $('#firstname').val(data.firstname);
                    $('#middlename').val(data.middlename); 
                    $('#lastname').val(data.lastname);
-                   $('#address').val(data.address);  
+                   $('#gender').val(data.gender); 
+                   $('#housenumber').val(data.housenumber);
+                   $('#streetname').val(data.streetname);
+                   $('#barangay').val(data.barangay);
+                   $('#city').val(data.city);  
                    $('#birthdate').val(data.birthdate);  
-                   $('#contactinfo').val(data.contactinfo);  
-                   $('#gender').val(data.gender);  
+                   $('#contactinfo').val(data.contactinfo);   
                    $('#civilstatus').val(data.civilstatus);
                    $('#citizenship').val(data.citizenship);
                    $('#hireddate').val(data.hireddate);
@@ -61,6 +64,26 @@
                    $('#pagibignumber').val(data.pagibignumber);   
                    $('.modal-title').text("Update employee");  
                    $('#employeeID').val(employeeID);  
+                   $('#action').val("Update");  
+              }  
+         })  
+      });
+
+      $('.leave-edit').unbind('click').bind('click', function(){  
+                  
+           var leaveID = $(this).attr("id");  
+         $.ajax({  
+              url:"<?php echo base_url(); ?>Employee/fetch_single_user",  
+              method:"POST",  
+              data:{leaveID:leaveID},  
+              dataType:"json",  
+              success:function(data)  
+              {  
+                   $('#setupleaveModal').modal('show');
+                   $('#typeofleave').val(data.typeofleave);  
+                   $('#numberofdays').val(data.numberofdays);   
+                   $('.modal-title').text("Update Leave");  
+                   $('#leaveID').val(leaveID);  
                    $('#action').val("Update");  
               }  
          })  

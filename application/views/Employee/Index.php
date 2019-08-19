@@ -49,7 +49,7 @@
                           echo '<td>'.$r->contactinfo.'</td>'; 
                           echo '<td>'.$r->hireddate.'</td>';  
                           echo '<td><label class="badge badge-success">'.$r->status.'</label></td>'; 
-                          echo '<td><button type="button" name="update" id="'.$r->employeeID.'" class="btn btn-outline-primary item-edit" data-target="#addModal">View</button></td>' ;
+                          echo '<td><button type="button" name="update" id="'.$r->employeeID.'" class="btn btn-outline-primary employee-edit" data-target="#addModal">View</button></td>' ;
                         }
                       ?>
                 </tbody>
@@ -91,20 +91,6 @@
                       <div class="form-group">
                         <div class="row">
                         <div class="col">
-                          <div class="form-check form-check-primary">
-                            <label class="form-check-label" for="status">
-                              <input type="hidden" id="status" name="status" value="inactive">
-                              <input type="checkbox" id="status" name="status" value="active">
-                              Active
-                            </label>
-                          </div>
-                        </div>                      
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <div class="row">
-                        <div class="col">
                           <label for="firstname">First Name</label>
                           <input id="firstname" type="text" name="firstname" class="form-control"  required>
                         </div>
@@ -116,34 +102,46 @@
                           <label for="lastname">Last Name</label>
                           <input id="lastname" type="text" name="lastname" class="form-control" required>
                         </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <div class="row">
-                        <div class="col">
-                          <label for="address">Address</label>
-                          <input id="address" type="text" name="address" class="form-control"  required>
-                        </div>
-                        <div class="col">
-                          <label for="birthdate">Birthdate</label>
-                          <input id="birthdate" type="date" name="birthdate" class="form-control" required>
-                        </div>
-                        <div class="col">
-                          <label for="contactinfo">Contact No.</label>
-                          <input id="contactinfo" type="text" name="contactinfo" class="form-control" required>
-                        </div>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <div class="row">
                         <div class="col">
                           <label for="gender">Gender</label>
                           <select class="form-control" name="gender">
                             <option>Male</option>
                             <option>Female</option>
                           </select>
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="row">
+                        <div class="col">
+                          <label for="housenumber">Unit/House No.</label>
+                          <input id="housenumber" type="text" name="housenumber" class="form-control"  required>
+                        </div>
+                        <div class="col">
+                          <label for="streetname">Building/Street Name</label>
+                          <input id="streetname" type="text" name="streetname" class="form-control" required>
+                        </div>
+                        <div class="col">
+                          <label for="barangay">Barangay</label>
+                          <input id="barangay" type="text" name="barangay" class="form-control" required>
+                        </div>
+                        <div class="col">
+                          <label for="city">City/Municipality</label>
+                          <input id="city" type="text" name="city" class="form-control" required>
+                        </div>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <div class="row">
+                        <div class="col">
+                          <label for="birthdate">Birthdate</label>
+                          <input id="birthdate" type="date" name="birthdate" class="form-control"  required>
+                        </div>
+                        <div class="col">
+                          <label for="contactinfo">Contact No.</label>
+                          <input id="contactinfo" type="text" name="contactinfo" class="form-control" required>
                         </div>
                         <div class="col">
                           <label for="civilstatus">Civil Status</label>
@@ -152,7 +150,7 @@
                             <option>Married</option>
                           </select>
                         </div>
-                        <div class="col">
+                          <div class="col">
                           <label for="citizenship">Citizenship</label>
                           <input id="citizenship" type="text" name="citizenship" class="form-control" required>
                         </div>
@@ -185,6 +183,15 @@
                             echo '<option value="'.$position->positionID.'">'.$position->description.'</option>';
                             }
                             ?>
+                          </select>
+                        </div>
+                        <div class="col">
+                          <label for="status">Status</label>
+                          <select class="form-control" name="status">
+                            <option>Active</option>
+                            <option>Terminated</option>
+                            <option>End of Contract</option>
+                            <option>Resigned</option>
                           </select>
                         </div>
                         </div>

@@ -42,7 +42,7 @@
                           echo '<tr>';
                           echo '<td>'.$r->departmentID.'</td>'; 
                           echo '<td>'.$r->description.'</td>';
-                          echo '<td><button type="button" name="update" id="'.$r->departmentID.'" class="btn btn-outline-primary item-edit" data-target="#setupdepartmentModal">View</button></td>' ;
+                          echo '<td><button type="button" name="update" id="'.$r->departmentID.'" class="btn btn-outline-primary" data-target="#setupdepartmentModal">View</button></td>' ;
                         }
                       ?>
                 </tbody>

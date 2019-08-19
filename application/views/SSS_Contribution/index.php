@@ -76,7 +76,8 @@
               echo '<td align = "right">'.$r->ercontribution.'</td>';
               echo '<td align = "right">'.$r->eecontribution.'</td>';
               echo '<td align = "right">'.$r->total.'</td>';
-              echo "<td><a href='SSS_Contribution/deletedata?id=".$r->sssid."'> Delete</a></td>";   
+              echo "<td><a href='SSS_Contribution/deletedata?id=".$r->sssid."'> Delete</a></td>";
+              echo '<td><button type="button" name="update" id="'.$r->sssid.'" class="btn btn-outline-primary" data-target="#addModal">View</button></td>' ;   
               echo '</tr>';    
           }
           ?>             
