@@ -41,6 +41,7 @@
 					'password' => $password
 					);
 					$this->session->set_userdata('userdata',$session_data);
+					$this->session->set_flashdata('dashboard', 'success'); 
 					redirect(base_url() .'dashboard');
 				}
 				else
@@ -67,19 +68,23 @@
 	           if($_POST["action"] == "Add")  
 	           {  
 	                $data = array( 
-	                	'status' => $this->input->post('status'), 
+	                	
 	                    'firstname' => $this->input->post('firstname'),
 				        'middlename' => $this->input->post('middlename'),
 				        'lastname' => $this->input->post('lastname'),
-				        'address' => $this->input->post('address'),
+				        'gender' => $this->input->post('gender'),
+				        'housenumber' => $this->input->post('housenumber'),
+				        'streetname' => $this->input->post('streetname'),
+				        'barangay' => $this->input->post('barangay'),
+				        'city' => $this->input->post('city'),
 				        'birthdate' => $this->input->post('birthdate'),
 				        'contactinfo' => $this->input->post('contactinfo'),
-				        'gender' => $this->input->post('gender'),
 				        'civilstatus' => $this->input->post('civilstatus'),
 				        'citizenship' => $this->input->post('citizenship'),
 				        'hireddate' => $this->input->post('hireddate'),
 				        'departmentID' => $this->input->post('departmentID'),
 				        'positionID' => $this->input->post('positionID'),
+				        'status' => $this->input->post('status'), 
 				        'basicsalary' => $this->input->post('basicsalary'),
 				        'dailyrate' => $this->input->post('dailyrate'),
 				        'allowance' => $this->input->post('allowance'),
@@ -98,26 +103,31 @@
 	           if($_POST["action"] == "Update")  
 	           {   
 	                $updated_data = array(
-	                	'status' => $this->input->post('status'),  
-	                    'firstname' => $this->input->post('firstname'),
+
+	                	'firstname' => $this->input->post('firstname'),
 				        'middlename' => $this->input->post('middlename'),
 				        'lastname' => $this->input->post('lastname'),
-				        'address' => $this->input->post('address'),
+				        'gender' => $this->input->post('gender'),
+				        'housenumber' => $this->input->post('housenumber'),
+				        'streetname' => $this->input->post('streetname'),
+				        'barangay' => $this->input->post('barangay'),
+				        'city' => $this->input->post('city'),
 				        'birthdate' => $this->input->post('birthdate'),
 				        'contactinfo' => $this->input->post('contactinfo'),
-				        'gender' => $this->input->post('gender'),
 				        'civilstatus' => $this->input->post('civilstatus'),
 				        'citizenship' => $this->input->post('citizenship'),
 				        'hireddate' => $this->input->post('hireddate'),
 				        'departmentID' => $this->input->post('departmentID'),
 				        'positionID' => $this->input->post('positionID'),
+				        'status' => $this->input->post('status'), 
 				        'basicsalary' => $this->input->post('basicsalary'),
 				        'dailyrate' => $this->input->post('dailyrate'),
 				        'allowance' => $this->input->post('allowance'),
 				        'tinnumber' => $this->input->post('tinnumber'),
 				        'sssnumber' => $this->input->post('sssnumber'),
 				        'philhealthnumber' => $this->input->post('philhealthnumber'),
-				        'pagibignumber' => $this->input->post('pagibignumber')  
+				        'pagibignumber' => $this->input->post('pagibignumber')
+
 	                );  
 	                $this->load->model('Employee_model');  
 	                $this->Employee_model->update($this->input->post("employeeID"), $updated_data); 
@@ -132,20 +142,23 @@
 	           $this->load->model("Employee_model");  
 	           $data = $this->Employee_model->fetch_single_user($_POST["employeeID"]);  
 	           foreach($data as $r)  
-	           {
-	           		$output['status'] = $r->status;  
+	           { 
 	                $output['firstname'] = $r->firstname;
 	                $output['middlename'] = $r->middlename;  
-	                $output['lastname'] = $r->lastname; 
-	                $output['address'] = $r->address;
+	                $output['lastname'] = $r->lastname;
+	                $output['gender'] = $r->gender; 
+	                $output['housenumber'] = $r->housenumber;
+	                $output['streetname'] = $r->streetname;
+	                $output['barangay'] = $r->barangay;
+	                $output['city'] = $r->city;
 	                $output['birthdate'] = $r->birthdate;
 	                $output['contactinfo'] = $r->contactinfo;
-	                $output['gender'] = $r->gender;
 	                $output['civilstatus'] = $r->civilstatus; 
 	                $output['citizenship'] = $r->citizenship;
 	                $output['hireddate'] = $r->hireddate;
 	                $output['departmentID'] = $r->departmentID;
 	                $output['positionID'] = $r->positionID;
+	                $output['status'] = $r->status; 
 	                $output['basicsalary'] = $r->basicsalary;
 	                $output['dailyrate'] = $r->dailyrate;
 	                $output['allowance'] = $r->allowance;

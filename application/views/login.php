@@ -35,7 +35,8 @@
               <h6 class="font-weight-light">Happy to see you again!</h6>
                   <span class="text-danger"></span>
               <form method="post" action="<?php echo base_url(); ?>Employee/login_validation">
-                <span class="text-danger"><?php echo $this->session->flashdata("error"); ?> </span>
+                <span class="text-danger"><?php echo $this->session->flashdata("error"); ?> 
+                <span><?php if($this->session->flashdata('login')=="sucess") echo '<script type="text/javascript"> showDangerToast() </script>';?></span>
                 <div class="form-group">
                   <label for="exampleInputEmail">Username</label>
                   <div class="input-group">

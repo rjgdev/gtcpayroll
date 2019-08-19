@@ -61,7 +61,7 @@
         </tr>
         <tr>
          
-          <th>Addtional Tax</th>
+           <th>Additional Tax</th>
            <th>Percent</th>
            <th>Over</th>
         
@@ -113,6 +113,10 @@
         <div class="form-group">
         <label for="exampleInputPassword1">Above Range</label>
         <input type="text" class="form-control" id="taxaboverange" name="taxaboverange" placeholder="above Range"required>
+        </div>
+        <div class="form-group">
+        <label for="exampleInputPassword1">Additional Tax</label>
+        <input type="text" class="form-control" id="additionaltax" name="additionaltax" placeholder="Additional Tax"required>
         </div>
         <div class="form-group">
         <label for="exampleInputPassword1">Percent</label>

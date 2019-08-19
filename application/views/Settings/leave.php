@@ -1,16 +1,11 @@
-<script>
-  $(function () {
-    $('.select2').select2();
-  });
-</script>
 <div class="main-panel">
-	<div class="content-wrapper">
-	    <nav aria-label="breadcrumb">
-	      <ol class="breadcrumb breadcrumb-custom bg-inverse-primary">
-	        <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>Dashboard"><i class="mdi mdi-view-dashboard"></i> Dashboard</a></li>
-	        <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i> Leave</span></li>
-	      </ol>
-	    </nav>
+  <div class="content-wrapper">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-custom bg-inverse-primary">
+          <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>Dashboard"><i class="mdi mdi-view-dashboard"></i> Dashboard</a></li>
+          <li class="breadcrumb-item active" aria-current="page"><span><i class="mdi mdi-account-multiple-outline"></i> Leave</span></li>
+        </ol>
+      </nav>
     
         <div class="card">
       <div class="card-body test-card">
@@ -33,7 +28,7 @@
                       <th>Leave ID</th>
                       <th>Type of Leave</th>
                       <th>No. of Days</th>
-					            <th>Action</th>
+                      <th>Action</th>
                   </tr>
                 </thead>
                 <tbody id="showdata">
@@ -44,7 +39,7 @@
                           echo '<td>'.$r->leaveID.'</td>'; 
                           echo '<td>'.$r->typeofleave.'</td>';  
                           echo '<td>'.$r->numberofdays.'</td>'; 
-                          echo '<td><button type="button" name="update" id="'.$r->leaveID.'" class="btn btn-outline-primary item-edit" data-target="#setupleaveModal">View</button></td>' ;
+                          echo '<td><button type="button" name="update" id="'.$r->leaveID.'" class="btn btn-outline-primary leave-edit" data-target="#setupleaveModal">View</button></td>' ;
                         }
                       ?>
                 </tbody>
@@ -53,8 +48,8 @@
           </div>
         </div>
     </div>
-	</div>
-	</div>
+  </div>
+  </div>
 </div>
 
 <div class="modal fade" id="setupleaveModal" role="dialog" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -94,3 +89,28 @@
       </form>
     </div>
 </div>
+<script>
+  $(function () {
+    $('.select2').select2();
+  });
+
+  $('.leave-edit').unbind('click').bind('click', function(){  
+                  
+           var leaveID = $(this).attr("id");  
+         $.ajax({  
+              url:"<?php echo base_url(); ?>Leave/fetch_single_leave",  
+              method:"POST",  
+              data:{leaveID:leaveID},  
+              dataType:"json",  
+              success:function(data)  
+              {  
+                   $('#setupleaveModal').modal('show');
+                   $('#typeofleave').val(data.typeofleave);  
+                   $('#numberofdays').val(data.numberofdays);   
+                   $('.modal-title').text("Update Leave");  
+                   $('#leaveID').val(leaveID);  
+                   $('#action').val("Update");  
+              }  
+         })  
+      });
+</script>

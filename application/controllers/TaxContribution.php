@@ -20,6 +20,7 @@
 		$data = array(
 					'taxbelowrange' => $this->input->post('taxbelowrange'),
 					'taxaboverange' => $this->input->post('taxaboverange'),
+					'additionaltax' => $this->input->post('additionaltax'),
 					'percent' => $this->input->post('percent')
 		);	
 		 $this->db->insert('taxwithholding',$data);

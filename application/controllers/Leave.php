@@ -41,11 +41,11 @@ class Leave extends CI_Controller {
 	           }  
 	      }
 
-    public function fetch_single_user()  
+    public function fetch_single_leave()  
       {  
            $output = array();  
            $this->load->model("Leave_model");  
-           $data = $this->Leave_model->fetch_single_user($_POST["leaveID"]);  
+           $data = $this->Leave_model->fetch_single_leave($_POST["leaveID"]);  
            foreach($data as $r)  
            {  
                 $output['typeofleave'] = $r->typeofleave;
